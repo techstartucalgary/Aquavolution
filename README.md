@@ -1,4 +1,4 @@
 # Aquavolution
 #### List of Contributors
-Ben Schmidt
+Ben Schmidt @anidion
 Madeline Mazurek @madelinemazurek
