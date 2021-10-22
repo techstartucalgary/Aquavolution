@@ -3,5 +3,5 @@
 Ben Schmidt @anidion\
 Madeline Mazurek @madelinemazurek\
 Elgiz @elgizabbasov\
-Richard Chow
-Tamunomiete Brown
+Richard Chow\
+Tamunomiete Brown\
