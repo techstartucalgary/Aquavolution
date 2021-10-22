@@ -5,4 +5,5 @@ Madeline Mazurek @madelinemazurek
 Elgiz
 Ben Schmidt
 Madeline Mazurek @madelinemazurek
+Richard Chow
 Tamunomiete Brown
