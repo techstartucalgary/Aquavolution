@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Spine;
 using Spine.Unity;
 
 public class ViewUnit : MonoBehaviour
