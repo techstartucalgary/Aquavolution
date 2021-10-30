@@ -22,20 +22,16 @@ public class SpawnFood : MonoBehaviour
         InvokeRepeating("randomSpawn", 0.5f, 0.5f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // Gets x, y integers randomly between 0 and screen width and height in pixels
+    // Then, turns the pixel values into world space units, and instantiates a food prefab at that location
     void randomSpawn()
     {
         int SpawnX = RNG.Next(0, ScreenWidth);
         int SpawnY = RNG.Next(0, ScreenHeight);
-        Debug.Log("PX X: " + SpawnX + " PX Y: " + SpawnY);
-        SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
-        Debug.Log("\nWorldSpace: " + SpawnPos);
-        GameObject FoodObject = Instantiate(FoodPrefab, SpawnPos, Quaternion.identity);
-        FoodObject.SetActive(true);
+        
+        SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));      // Converts pixel values to world-space 
+        
+        GameObject FoodObject = Instantiate(FoodPrefab, SpawnPos, Quaternion.identity);         // Instantiates Prefab
+        FoodObject.SetActive(true);     // Enables prefab
     }
 }
