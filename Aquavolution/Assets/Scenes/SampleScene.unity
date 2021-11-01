@@ -142,13 +142,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33100343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.331155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.888508
+      value: 5.816
       objectReference: {fileID: 0}
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.418525
+      value: -3.2777
       objectReference: {fileID: 0}
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
@@ -235,9 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4d55e50dfa9e64ca0e54b9bd1167c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodPrefab: {fileID: 1463487834}
+  Food: {fileID: 1463487834}
   Cam: {fileID: 1290957913}
-  Speed: 0.5
+  MaxFood: 10
 --- !u!1 &709916444
 GameObject:
   m_ObjectHideFlags: 0
