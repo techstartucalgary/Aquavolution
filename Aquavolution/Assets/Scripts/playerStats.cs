@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class playerStats : MonoBehaviour
 {
-    public int foodCount = 0;
-    private double size = 1;
-    private Vector3 scale = new Vector3(1, 1, 1);
+    public int FoodCount = 0;
+    private static float SizeChange = 0.2F;
+    private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
 
-    GameObject player;
-
-    void OnCollisionEnter2D(Collision2D Col)        // This method is called whenever a collision is detected, and passes the Component which Food collided with
-    {
-        Debug.Log("collided with " + Col.collider.ToString().Substring(0, 4));
-        if (Col.collider.ToString().Substring(0, 4) == "Food") {
-            foodCount++;
-            size += 0.2;
-            scale.Set((float)size, (float)size, 1);
-        }
-    }
+    GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject;
+        Player = gameObject;
+        Player.transform.localScale = new Vector3(1, 1, 1); //set initial transform scale fro player
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter2D(Collision2D Col) //method is called whenever a collision is detected
     {
-        player.transform.localScale = scale;
+        //print statement
+        Debug.Log("collided with " + Col.gameObject.tag);
+
+        //on collision with an object of type food
+        if (Col.gameObject.tag == "Food") {
+            FoodCount++;
+            Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
+        }
     }
 }
