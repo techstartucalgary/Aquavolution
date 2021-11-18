@@ -148,12 +148,12 @@ PrefabInstance:
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.33100343
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.331155
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
@@ -837,6 +837,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181096026011457970, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
+        type: 3}
+      propertyPath: MinSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181096026011457970, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
+        type: 3}
+      propertyPath: SlowdownFactor
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181096026011457970, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
+        type: 3}
+      propertyPath: StartingMoveSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a610c2d3647c1f4cad9bd5edf87db91, type: 3}
