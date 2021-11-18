@@ -143,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4765701041407055160, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
@@ -263,7 +263,7 @@ PrefabInstance:
     - target: {fileID: 1954597690807235341, guid: a8c5ce10790a8b246ac600333a85e250,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1954597690807235341, guid: a8c5ce10790a8b246ac600333a85e250,
         type: 3}
@@ -506,6 +506,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1982b2bcf354f7dbcfea8976c3b503, type: 3}
+--- !u!1 &995187189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4442058248207606796, guid: a8c5ce10790a8b246ac600333a85e250,
+    type: 3}
+  m_PrefabInstance: {fileID: 368666154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &995187190
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995187189}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.92, y: 2.31}
+    newSize: {x: 0.92, y: 2.31}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.45999998, y: -0.85499996}
+      - {x: 0.42, y: -0.705}
+      - {x: 0.41, y: -0.53499997}
+      - {x: 0.45, y: -0.105}
+      - {x: 0.39, y: 0.015}
+      - {x: 0.45999998, y: 0.105}
+      - {x: 0.45999998, y: 0.555}
+      - {x: 0.45, y: 0.575}
+      - {x: 0.34, y: 0.585}
+      - {x: 0.34, y: 0.715}
+      - {x: 0.44, y: 0.775}
+      - {x: 0.39999998, y: 0.895}
+      - {x: 0.42, y: 1.015}
+      - {x: 0.37, y: 1.035}
+      - {x: 0.28, y: 1.045}
+      - {x: 0.29, y: 1.155}
+      - {x: -0.29999998, y: 1.155}
+      - {x: -0.29999998, y: 1.0749999}
+      - {x: -0.41, y: 1.015}
+      - {x: -0.39999998, y: 0.865}
+      - {x: -0.44, y: 0.78499997}
+      - {x: -0.34, y: 0.715}
+      - {x: -0.34, y: 0.60499996}
+      - {x: -0.45999998, y: 0.585}
+      - {x: -0.45999998, y: 0.085}
+      - {x: -0.41, y: -0.044999998}
+      - {x: -0.41, y: -0.53499997}
+      - {x: -0.42999998, y: -0.705}
+      - {x: -0.45999998, y: -0.85499996}
+      - {x: -0.45999998, y: -1.045}
+      - {x: -0.39999998, y: -1.105}
+      - {x: -0.24, y: -1.155}
+      - {x: 0.22999999, y: -1.155}
+      - {x: 0.34, y: -1.125}
+      - {x: 0.39, y: -1.095}
+      - {x: 0.45999998, y: -1.015}
+    - - {x: -0.35, y: 0.33499998}
+      - {x: -0.32, y: 0.305}
+      - {x: -0.28, y: 0.305}
+      - {x: -0.29999998, y: 0.315}
+    - - {x: 0.32, y: 0.305}
+      - {x: 0.35, y: 0.33499998}
+      - {x: 0.28, y: 0.305}
 --- !u!1 &1290957911
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +781,7 @@ PrefabInstance:
     - target: {fileID: 5181096026011457932, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5181096026011457932, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
