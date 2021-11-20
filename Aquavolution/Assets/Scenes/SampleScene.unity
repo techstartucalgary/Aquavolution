@@ -137,6 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3032787666406475012, guid: 9186b2957c30f9346a211887bfedb199,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032787666406475012, guid: 9186b2957c30f9346a211887bfedb199,
+        type: 3}
       propertyPath: m_TagString
       value: Food
       objectReference: {fileID: 0}
@@ -218,7 +223,7 @@ GameObject:
   - component: {fileID: 123406680}
   - component: {fileID: 123406681}
   m_Layer: 0
-  m_Name: FoodSpawner
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,12 +252,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 123406679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a4d55e50dfa9e64ca0e54b9bd1167c4, type: 3}
+  m_Script: {fileID: 11500000, guid: b4ef8702585086742a33014b0b5b57ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Food: {fileID: 1463487834}
+  Enemy: {fileID: 894434886}
   Cam: {fileID: 1290957913}
   MaxFood: 10
+  MaxEnemy: 5
 --- !u!1001 &368666154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,6 +341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cliff
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442058248207606796, guid: a8c5ce10790a8b246ac600333a85e250,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8c5ce10790a8b246ac600333a85e250, type: 3}
@@ -444,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodCount: 0
   ScoreCount: {fileID: 1579059583}
+  Health: 5
 --- !u!4 &709916449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5181096026011457932, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
@@ -459,7 +472,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1788738869386804, guid: 9e1982b2bcf354f7dbcfea8976c3b503, type: 3}
       propertyPath: m_Name
-      value: FishBig
+      value: Enemy_BigFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788738869386804, guid: 9e1982b2bcf354f7dbcfea8976c3b503, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788738869386804, guid: 9e1982b2bcf354f7dbcfea8976c3b503, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4941755353630458, guid: 9e1982b2bcf354f7dbcfea8976c3b503, type: 3}
       propertyPath: m_RootOrder
@@ -505,8 +526,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4251201572701984463, guid: 9e1982b2bcf354f7dbcfea8976c3b503,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1982b2bcf354f7dbcfea8976c3b503, type: 3}
+--- !u!1 &894434886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788738869386804, guid: 9e1982b2bcf354f7dbcfea8976c3b503,
+    type: 3}
+  m_PrefabInstance: {fileID: 894434885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &995187189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4442058248207606796, guid: a8c5ce10790a8b246ac600333a85e250,

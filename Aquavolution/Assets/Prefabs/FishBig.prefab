@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4941755353630458}
   - component: {fileID: 212638749127979920}
   - component: {fileID: 58475724367877082}
-  - component: {fileID: 114825552694270172}
   - component: {fileID: 95799510858217854}
-  - component: {fileID: 114945651046562810}
   - component: {fileID: 50066830953986102}
+  - component: {fileID: 4251201572701984463}
   m_Layer: 0
   m_Name: FishBig
   m_TagString: Untagged
@@ -103,18 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
---- !u!114 &114825552694270172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788738869386804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609dc6b73a5ce4b1bb5bf085838b2318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &95799510858217854
 Animator:
   serializedVersion: 3
@@ -134,21 +121,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114945651046562810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788738869386804}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9608d209ea1884745841726a7230acf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  death: {fileID: 1820545851295154, guid: b22a24e39bda14f3bb2b1feb1d07ee14, type: 3}
-  speed: 0.3
-  timeTrigger: 0
 --- !u!50 &50066830953986102
 Rigidbody2D:
   serializedVersion: 4
@@ -170,3 +142,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4251201572701984463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788738869386804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bd2eea355f4c4da77292f7aed2656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatrolLength: 10
+  MoveSpeed: 15
