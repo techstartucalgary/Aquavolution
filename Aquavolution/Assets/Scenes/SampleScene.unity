@@ -455,8 +455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodCount: 0
-  ScoreCount: {fileID: 1579059583}
   Health: 5
+  ScoreCount: {fileID: 1579059583}
 --- !u!4 &709916449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5181096026011457932, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
@@ -874,7 +874,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'Score: 0'
 --- !u!222 &1579059584
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 2011622112}
   - component: {fileID: 2011622111}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Play Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,12 +997,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
