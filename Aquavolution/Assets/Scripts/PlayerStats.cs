@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
     public int FoodCount = 0;
     public int Health = 5;
     private string FoodTag = "Food";
+    [SerializeField] private Text ScoreCount;
     private string EnemyTag = "Enemy";
     private static float SizeChange = 0.2F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
@@ -36,6 +38,10 @@ public class PlayerStats : MonoBehaviour
         if (Col.gameObject.tag == FoodTag) 
         {
             FoodCount++;
+
+            ScoreCount.text = "Score: " + FoodCount; //display score to screen
+            //Debug.Log("New food count: " + FoodCount);
+
             Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
         }
 
