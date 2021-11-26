@@ -7,11 +7,16 @@ public class SpawnObjects : MonoBehaviour
     public Camera Cam;
     public int MaxFood = 10;
     public int MaxEnemy = 5;
-    
+
+    public float Speed;
+
     void Start()
     {
         RandomSpawn(Enemy, MaxEnemy);
-        RandomSpawn(Food, MaxFood);
+
+        // Repeatedly generate food objects at Speed 
+        InvokeRepeating("Generate", 0, Speed);
+
     }
 
     // Gets x, y integers randomly between 0 and screen width and height in pixels,
@@ -23,7 +28,7 @@ public class SpawnObjects : MonoBehaviour
         {
             int SpawnX = Random.Range(0, Screen.width);
             int SpawnY = Random.Range(0, Screen.height);
-            
+
             // Converts pixel values to world-space
             Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
             // Instantiates Prefab
@@ -31,5 +36,18 @@ public class SpawnObjects : MonoBehaviour
             // Enables prefab
             SpawnedObject.SetActive(true);
         }
+    }
+
+    void Generate()
+    {
+        int SpawnX = Random.Range(0, Screen.width);
+        int SpawnY = Random.Range(0, Screen.height);
+
+        // Converts pixel values to world-space
+        Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
+        // Instantiates Prefab
+        GameObject SpawnedObject = Instantiate(Food, SpawnPos, Quaternion.identity);
+        // Enables prefab
+        SpawnedObject.SetActive(true);
     }
 }
