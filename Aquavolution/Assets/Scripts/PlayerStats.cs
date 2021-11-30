@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int FoodCount = 0;
-    public int Health = 5;
+    public static int FoodCount = 0;
+    public static int Health = 5;
     private string FoodTag = "Food";
     [SerializeField] private Text ScoreCount;
     private string EnemyTag = "Enemy";
@@ -25,10 +25,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if (Health <= 0)
-        {
-            Die();
-        }
+        
     }
 
     //method is called whenever a collision is detected
@@ -47,12 +44,24 @@ public class PlayerStats : MonoBehaviour
 
         if (Col.gameObject.tag == EnemyTag)
         {
-            Health -= 1;
+            DecreaseHealth();
         }
     }
 
     void Die()
     {
         gameObject.SetActive(false);
+    }
+
+    void DecreaseHealth() {
+        
+        UserInterface.UpdateHealthBar(); //update heath bar UI
+
+        Health -= 1; //decrease player health
+
+        if (Health <= 0)
+        {
+            Die();
+        } 
     }
 }
