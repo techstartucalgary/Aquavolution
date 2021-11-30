@@ -16,7 +16,6 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Transform = GetComponent<Transform>();
         SR = GetComponent<SpriteRenderer>();
         RB = GetComponent<Rigidbody2D>();
         RunBehavior();
