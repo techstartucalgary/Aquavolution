@@ -4,27 +4,23 @@ using System.Collections;
 public class MouseFollow : MonoBehaviour
 {
     Vector2 MousePosition;
-    public float StartingMoveSpeed;
-
-    public float SurfaceHeight;
+    public float StartingMoveSpeed;    
     public float Gravity;
     public float MoveDisabledTime;
-
-    private float JumpTime;
-    
+    private float JumpTime;    
     [SerializeField]
     private float MinSpeed;
-
     [SerializeField]
     private float SlowdownFactor;
-
     private Rigidbody2D Rb;
     private Transform Transform;
     private Vector2 Position = new Vector2(0f, 0f);
+    private WorldStats World;
 
     private void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
+        World = GameObject.Find("Game Manager").GetComponent<WorldStats>();
     }
 
     private void FixedUpdate()
@@ -49,7 +45,7 @@ public class MouseFollow : MonoBehaviour
     IEnumerator Move()
     {
         // If we're above the surface, we're affected by gravity and fall down
-        if (transform.position.y >= SurfaceHeight)
+        if (transform.position.y >= World.SurfaceHeight)
         {
             Rb.gravityScale = Gravity;
             yield return new WaitForSeconds(MoveDisabledTime);
