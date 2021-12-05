@@ -361,7 +361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 12
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!60 &122122508
 PolygonCollider2D:
@@ -644,13 +644,6 @@ Transform:
   m_LocalPosition: {x: -11.921888, y: -0.2709672, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1768275008}
-  - {fileID: 1023024667}
-  - {fileID: 410478952}
-  - {fileID: 1217577163}
-  - {fileID: 668253584}
-  - {fileID: 1854912334}
-  - {fileID: 1182849107}
   - {fileID: 1663324680}
   - {fileID: 850849111}
   - {fileID: 289101720}
@@ -661,6 +654,7 @@ Transform:
   - {fileID: 502178436}
   - {fileID: 601354932}
   - {fileID: 1319614147}
+  - {fileID: 1196235225}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -745,7 +739,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 10
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!60 &281609675
 PolygonCollider2D:
@@ -981,7 +975,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!60 &289101721
 PolygonCollider2D:
@@ -1311,7 +1305,7 @@ Transform:
   m_LocalPosition: {x: -8.078112, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &410478953
@@ -1632,7 +1626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 14
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!60 &502178437
 PolygonCollider2D:
@@ -1955,7 +1949,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 15
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!60 &601354933
 PolygonCollider2D:
@@ -2190,7 +2184,7 @@ Transform:
   m_LocalPosition: {x: 13.521889, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &668253585
@@ -2422,7 +2416,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5181096026719235757}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &752712522
+--- !u!114 &709916451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709916444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae510bb642519984e8225df13e428a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oceanFloorX: {fileID: 1663324680}
+  oceanFloorY: {fileID: 1768275008}
+  depthxText: {fileID: 1206015943}
+  depthyText: {fileID: 1316869091}
+--- !u!224 &752712522 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3998320366805373471, guid: a245a62293bef4046b2db6ad7f29da21,
     type: 3}
@@ -2577,7 +2587,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!60 &850849112
 PolygonCollider2D:
@@ -3093,7 +3103,7 @@ Transform:
   m_LocalPosition: {x: -19.87811, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1023024668
@@ -3329,7 +3339,7 @@ Transform:
   m_LocalPosition: {x: 37.39, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1182849108
@@ -3536,6 +3546,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1196235224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196235225}
+  m_Layer: 0
+  m_Name: OceanFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196235225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196235224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1768275008}
+  - {fileID: 1023024667}
+  - {fileID: 410478952}
+  - {fileID: 1217577163}
+  - {fileID: 668253584}
+  - {fileID: 1854912334}
+  - {fileID: 1182849107}
+  m_Father: {fileID: 209884357}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206015941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,7 +3691,7 @@ Transform:
   m_LocalPosition: {x: 3.4218884, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1217577164
@@ -4051,7 +4098,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1311252592
+--- !u!1 &1316869089
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4160,7 +4207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 16
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!60 &1319614148
 PolygonCollider2D:
@@ -4554,7 +4601,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 13
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!60 &1628853751
 PolygonCollider2D:
@@ -4790,7 +4837,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!60 &1663324681
 PolygonCollider2D:
@@ -5091,7 +5138,7 @@ Transform:
   m_LocalPosition: {x: -31.978113, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1768275009
@@ -5328,7 +5375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209884357}
-  m_RootOrder: 11
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!60 &1783575699
 PolygonCollider2D:
@@ -5563,7 +5610,7 @@ Transform:
   m_LocalPosition: {x: 25.3, y: -24.729033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 209884357}
+  m_Father: {fileID: 1196235225}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1854912335
@@ -5983,6 +6030,8 @@ RectTransform:
   m_Children:
   - {fileID: 1579059582}
   - {fileID: 479909894}
+  - {fileID: 1206015942}
+  - {fileID: 1316869090}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
