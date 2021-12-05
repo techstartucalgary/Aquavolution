@@ -7,15 +7,11 @@ public class SpawnObjects : MonoBehaviour
     public Camera Cam;
     public int MaxFood = 10;
     public int MaxEnemy = 5;
-    public int SurfaceOffset;
 
     public float Speed;
-    private WorldStats World;
 
     void Start()
     {
-        World = GetComponent<WorldStats>();
-        
         RandomSpawn(Enemy, MaxEnemy);
 
         // Repeatedly generate food objects at Speed 
@@ -35,15 +31,10 @@ public class SpawnObjects : MonoBehaviour
 
             // Converts pixel values to world-space
             Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
-
-            // Only spawn enemies under the ocean
-            if (SpawnPos.y < (World.SurfaceHeight - SurfaceOffset))
-            {
-                // Instantiates Prefab
-                GameObject SpawnedObject = Instantiate(SpawnObj, SpawnPos, Quaternion.identity);
-                // Enables prefab
-                SpawnedObject.SetActive(true);
-            }
+            // Instantiates Prefab
+            GameObject SpawnedObject = Instantiate(SpawnObj, SpawnPos, Quaternion.identity);
+            // Enables prefab
+            SpawnedObject.SetActive(true);
         }
     }
 
@@ -54,14 +45,9 @@ public class SpawnObjects : MonoBehaviour
 
         // Converts pixel values to world-space
         Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
-        
-        // Only spawn food under the ocean
-        if (SpawnPos.y < (World.SurfaceHeight - SurfaceOffset))
-        {
-            // Instantiates Prefab
-            GameObject SpawnedObject = Instantiate(Food, SpawnPos, Quaternion.identity);
-            // Enables prefab
-            SpawnedObject.SetActive(true);
-        }
+        // Instantiates Prefab
+        GameObject SpawnedObject = Instantiate(Food, SpawnPos, Quaternion.identity);
+        // Enables prefab
+        SpawnedObject.SetActive(true);
     }
 }
