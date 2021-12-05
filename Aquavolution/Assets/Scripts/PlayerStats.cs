@@ -7,12 +7,9 @@ public class PlayerStats : MonoBehaviour
 {
     public static int FoodCount = 0;
     public static int Health = 5;
-    private string FoodTag = "Food";
     [SerializeField] private Text ScoreCount;
-    private string EnemyTag = "Enemy";
     private static float SizeChange = 0.2F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
-
     GameObject Player;
 
     // Start is called before the first frame update
@@ -23,26 +20,34 @@ public class PlayerStats : MonoBehaviour
         Player.transform.localScale = new Vector3(1, 1, 1);
     }
 
-    void Update()
-    {
-        
-    }
-
     //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
         //on collision with an object of type food
-        if (Col.gameObject.tag == FoodTag) 
+        if (Col.gameObject.tag == "Food") 
         {
-            FoodCount++;
-
-            ScoreCount.text = "Score: " + FoodCount; //display score to screen
-            //Debug.Log("New food count: " + FoodCount);
-
-            Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
+            IncreaseFood(1);            
         }
 
-        if (Col.gameObject.tag == EnemyTag)
+        if (Col.gameObject.tag == "Enemy")
+        {
+            // Get behavior script of enemy we touch
+            EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
+
+            // Lose health if player hits an enemy larger than them
+            if (FoodCount < EnemyScript.Size)
+            {
+                DecreaseHealth();
+            }
+            // Eat the enemy and gain their size as food if player is larger than them
+            if (FoodCount > EnemyScript.Size)
+            {
+                EnemyScript.GetEaten();
+                IncreaseFood(EnemyScript.Size);
+            }
+        }
+
+        if (Col.gameObject.tag == "Waste")
         {
             DecreaseHealth();
         }
@@ -63,5 +68,12 @@ public class PlayerStats : MonoBehaviour
         {
             Die();
         } 
+    }
+
+    void IncreaseFood(int IncreaseVal)
+    {
+        FoodCount += IncreaseVal;
+        ScoreCount.text = "Score: " + FoodCount; //display score to screen
+        Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
     }
 }
