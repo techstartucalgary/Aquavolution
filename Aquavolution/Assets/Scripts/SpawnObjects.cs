@@ -71,7 +71,7 @@ public class SpawnObjects : MonoBehaviour
         }
     }
 
-    // We'll improve this later once we have more rooms, for now it returns room 1
+    // We'll improve this later once we have more rooms, for now it just returns room 1
     RoomData GetPlayerRoom()
     {
         return(Room1);
