@@ -613,9 +613,9 @@ MonoBehaviour:
   Food: {fileID: 1463487834}
   Enemy: {fileID: 894434886}
   Cam: {fileID: 1290957913}
-  MaxFood: 10
-  MaxEnemy: 5
-  Speed: 2
+  MaxFood: 100
+  MaxEnemy: 15
+  Speed: 0.5
 --- !u!1 &209884356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,6 +2977,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4251201572701984463, guid: 9e1982b2bcf354f7dbcfea8976c3b503,
         type: 3}
+      propertyPath: Size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251201572701984463, guid: 9e1982b2bcf354f7dbcfea8976c3b503,
+        type: 3}
       propertyPath: MoveSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -4526,8 +4531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -40}
-  m_SizeDelta: {x: 160, y: 27.915}
+  m_AnchoredPosition: {x: 201.6914, y: -40}
+  m_SizeDelta: {x: 363.3828, y: 27.915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579059583
 MonoBehaviour:
