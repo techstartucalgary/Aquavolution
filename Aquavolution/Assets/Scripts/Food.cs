@@ -9,7 +9,7 @@ public class Food : MonoBehaviour
         // Destroy food only if collides with player or enemy
         if (Col.gameObject.tag == "Player" || Col.gameObject.tag == "Enemy")
         {
-            gameObject.SetActive(false);                // Sets Food to inactive, so it does not show up. Could also delete entirely
+            Destroy(gameObject);
         }
     }
 }
