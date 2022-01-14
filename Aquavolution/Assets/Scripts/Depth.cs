@@ -27,5 +27,6 @@ public class Depth : MonoBehaviour {
         //DepthXText.text = "x: " + depthx.ToString("F2") + " meters";
         DepthXText.text = "";
         DepthYText.text = "Depth: " + DepthY.ToString("F2") + " meters";
+        
 	}
 }
