@@ -40,14 +40,22 @@ public class SpawnObjects : MonoBehaviour
 
     void Generate()
     {
-        int SpawnX = Random.Range(0, Screen.width);
-        int SpawnY = Random.Range(0, Screen.height);
+        if (GameObject.FindGameObjectsWithTag("Food").Length < MaxFood)
+        {
+            RoomData CurrentRoom = GetPlayerRoom();
+            float SpawnX = Random.Range((float)CurrentRoom.XZero, (float)CurrentRoom.XMax);
+            float SpawnY = Random.Range((float)CurrentRoom.YZero, (float)CurrentRoom.YMax);
 
-        // Converts pixel values to world-space
-        Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
-        // Instantiates Prefab
-        GameObject SpawnedObject = Instantiate(Food, SpawnPos, Quaternion.identity);
-        // Enables prefab
-        SpawnedObject.SetActive(true);
+            Vector3 SpawnPos = new Vector3(SpawnX, SpawnY, Cam.nearClipPlane);
+
+            // Instantiates Prefab
+            Instantiate(Food, SpawnPos, Quaternion.identity).SetActive(true);
+        }
+    }
+
+    // We'll improve this later once we have more rooms, for now it just returns room 1
+    RoomData GetPlayerRoom()
+    {
+        return(Room1);
     }
 }
