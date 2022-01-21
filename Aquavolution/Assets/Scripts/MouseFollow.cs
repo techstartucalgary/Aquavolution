@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class MouseFollow : MonoBehaviour
 {
@@ -29,38 +30,25 @@ public class MouseFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // gets in pixels
-        MousePosition = Input.mousePosition;
-        
-        if (MousePosition.x < 0)
-            MousePosition.x = 0;
-        if (MousePosition.x > Screen.width)
-            MousePosition.x = Screen.width;
-        if (MousePosition.y < 0)
-            MousePosition.y = 0;
-        if (MousePosition.y > Screen.height)
-            MousePosition.y = Screen.height;
-        
-        // convert to world
-        MousePosition = Camera.main.ScreenToWorldPoint(MousePosition);
-        StartCoroutine("Move");
+        MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        MoveCharacter();
     }
 
-    IEnumerator Move()
+    private void MoveCharacter()
     {
-        // If we're above the surface, we're affected by gravity and fall down
         if (transform.position.y >= SurfaceHeight)
-        {
             Rb.gravityScale = Gravity;
-            yield return new WaitForSeconds(MoveDisabledTime);
-            Rb.gravityScale = 0;
-        }
-        else if (Rb.gravityScale == 0)
+        else
         {
-            Position = Vector2.Lerp(transform.position, MousePosition, GetMoveSpeed() * Time.fixedDeltaTime);
-            Rb.MovePosition(Position);
+            Rb.gravityScale = 0;
+            Rb.AddForce((MousePosition - (Vector2)transform.position).normalized * GetMoveSpeed());
         }
-        
+        transform.up = MousePosition - (Vector2)transform.position;
+
+        if (transform.localEulerAngles.z < 180)
+            GetComponent<SpriteRenderer>().flipX = true;
+        else
+            GetComponent<SpriteRenderer>().flipX = false;
     }
 
     // Returns move speed, which gets lower as scale increases, to a minimum speed
@@ -68,21 +56,44 @@ public class MouseFollow : MonoBehaviour
     {
         float Scale = transform.localScale.x;
 
+        float Speed = 0.0f;
+
         if (Scale <= 1.5f)
         {
-            return StartingMoveSpeed;
+            Speed = StartingMoveSpeed;
         }
         else 
         {
             float Slowdown = Scale * SlowdownFactor;
             if (StartingMoveSpeed - Slowdown <= MinSpeed) 
             {
-                return MinSpeed;                
+                Speed = MinSpeed;                
             }
             else 
             {
-                return StartingMoveSpeed - Slowdown;
+                Speed = StartingMoveSpeed - Slowdown;
             }
         }
+
+        float SpeedRatio = Math.Max(GetMouseRatio().x, GetMouseRatio().y);
+
+        return Speed * SpeedRatio;
+    }
+
+    // Gets ratio of mousepos:screenheight, where 0 is center, 1.0 is max height/width
+    private Vector2 GetMouseRatio()
+    {
+        float YRatio = Math.Abs(2*Input.mousePosition.y/Screen.height - 1);
+        float XRatio = Math.Abs(2*Input.mousePosition.x/Screen.width - 1);
+
+        if ((Input.mousePosition.y > Screen.height) || (Input.mousePosition.y < 0))
+            YRatio = 1;
+        
+        if ((Input.mousePosition.x > Screen.width) || (Input.mousePosition.x < 0))
+            XRatio = 1;
+
+        // Debug.Log("Mouse Ratio: X, Y:" + XRatio + ", " + YRatio);
+
+        return new Vector2(XRatio, YRatio);
     }
 }
