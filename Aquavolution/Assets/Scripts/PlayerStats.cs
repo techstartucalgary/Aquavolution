@@ -23,6 +23,12 @@ public class PlayerStats : MonoBehaviour
     //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
+        //on collision with an object of type food
+        if (Col.gameObject.tag == "Food") 
+        {
+            IncreaseFood(1);            
+        }
+
         if (Col.gameObject.tag == "Enemy")
         {
             // Get behavior script of enemy we touch
@@ -44,15 +50,6 @@ public class PlayerStats : MonoBehaviour
         if (Col.gameObject.tag == "Waste")
         {
             DecreaseHealth();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D Col)
-    {
-        //on collision with an object of type food
-        if (Col.gameObject.tag == "Food") 
-        {
-            IncreaseFood(1);            
         }
     }
 

@@ -34,7 +34,6 @@ public class EnemyBehavior : MonoBehaviour
     {        
         if (Patrolling)
         {
-            // Moves the RB attached to this gameobject left to right in an infinite cycle
             RB.MovePosition(new Vector2((Mathf.Sin((2 * Mathf.PI * (Time.time*MoveSpeed/PatrolLength)) - (Mathf.PI / 2)) * (PatrolLength/2) + (PatrolLength/2))+StartPosition,RB.position.y));
         }
     }
