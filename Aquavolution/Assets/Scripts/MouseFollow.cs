@@ -6,22 +6,14 @@ public class MouseFollow : MonoBehaviour
 {
     Vector2 MousePosition;
     public float StartingMoveSpeed;
-
     public float SurfaceHeight;
     public float Gravity;
-    public float MoveDisabledTime;
-
-    private float JumpTime;
-    
     [SerializeField]
     private float MinSpeed;
 
     [SerializeField]
     private float SlowdownFactor;
-
     private Rigidbody2D Rb;
-    private Transform Transform;
-    private Vector2 Position = new Vector2(0f, 0f);
 
     private void Start()
     {
@@ -91,8 +83,6 @@ public class MouseFollow : MonoBehaviour
         
         if ((Input.mousePosition.x > Screen.width) || (Input.mousePosition.x < 0))
             XRatio = 1;
-
-        // Debug.Log("Mouse Ratio: X, Y:" + XRatio + ", " + YRatio);
 
         return new Vector2(XRatio, YRatio);
     }

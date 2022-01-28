@@ -11823,6 +11823,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5181096026011457933, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c77ae0701a92d245acb73a7379a5e16,
+        type: 3}
+    - target: {fileID: 5181096026011457933, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11830,6 +11836,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -474000191
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181096026011457968, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181096026011457968, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5181096026011457969, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
@@ -11839,7 +11855,7 @@ PrefabInstance:
     - target: {fileID: 5181096026011457970, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
       propertyPath: Gravity
-      value: 0.05
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5181096026011457970, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
@@ -11864,7 +11880,7 @@ PrefabInstance:
     - target: {fileID: 5181096026011457970, guid: 5a610c2d3647c1f4cad9bd5edf87db91,
         type: 3}
       propertyPath: StartingMoveSpeed
-      value: 1
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a610c2d3647c1f4cad9bd5edf87db91, type: 3}
