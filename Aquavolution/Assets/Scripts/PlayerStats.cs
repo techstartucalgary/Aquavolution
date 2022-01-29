@@ -5,17 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int FoodCount = 0;
-    public static int Health = 5;
+    public static int FoodCount;
+    public static int Health;
     [SerializeField] private Text ScoreCount;
     private static float SizeChange = 0.2F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
 
+    GameController GameController;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Set up initial values when the scene starts
+        FoodCount = 0;
+        Health = 5;
         Player = gameObject;
+        GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         //set initial transform scale for player
         Player.transform.localScale = new Vector3(1, 1, 1);
     }
@@ -56,6 +62,7 @@ public class PlayerStats : MonoBehaviour
     void Die()
     {
         gameObject.SetActive(false);
+        GameController.GameOver(FoodCount);
     }
 
     void DecreaseHealth() {
