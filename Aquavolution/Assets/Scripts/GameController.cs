@@ -7,7 +7,8 @@ public class GameController : MonoBehaviour
 {
     public DeathScreen DeathScreen;
 
-    public void GameOver(int FoodCount){
+    public void GameOver(int FoodCount)
+    {
         DeathScreen.Setup(FoodCount);
     }
 

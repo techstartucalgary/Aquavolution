@@ -15,7 +15,8 @@ public class Depth : MonoBehaviour {
     [SerializeField]
     private GameObject SurfaceOrigin;
 
-    private void Update () {
+    private void Update ()
+    {
         // Calculate distance value for x and y from surface origin
         DepthX = (SurfaceOrigin.transform.position.x - transform.position.x);
         DepthY = (SurfaceOrigin.transform.position.y - transform.position.y);

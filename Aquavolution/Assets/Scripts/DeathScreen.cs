@@ -8,17 +8,19 @@ public class DeathScreen : MonoBehaviour
 {
     public Text ScoreText;
 
-    public void Setup(int FinalScore){
+    public void Setup(int FinalScore)
+    {
         gameObject.SetActive(true);
-        ScoreText.text = "Score: " + FinalScore.ToString();
+        ScoreText.text = "Final Score: " + FinalScore.ToString();
     }
 
-    public void RestartButton() {
+    public void RestartButton()
+    {
         SceneManager.LoadScene("GameScene");
     }
 
-    public void ExitButton() {
-        // Create a new Scene called SplashScene which will be our Main scene when yo enter the game
-        // SceneManager.LoadScene("SplashScreen");
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("SplashScene");
     }
 }
