@@ -7,11 +7,11 @@ public class PlayerStats : MonoBehaviour
 {
     public static int FoodCount;
     public static int Health;
-    [SerializeField] private Text ScoreCount;
+    [SerializeField] 
+    private Text ScoreCount;
     private static float SizeChange = 0.2F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
-
     GameController GameController;
 
     // Start is called before the first frame update
@@ -80,6 +80,10 @@ public class PlayerStats : MonoBehaviour
     void IncreaseFood(int IncreaseVal)
     {
         FoodCount += IncreaseVal;
+        DisplayScoreToScreen(FoodCount);
+    }
+
+    void DisplayScoreToScreen(int FoodCount){
         ScoreCount.text = "Score: " + FoodCount; //display score to screen
         Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
     }
