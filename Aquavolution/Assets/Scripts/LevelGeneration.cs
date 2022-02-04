@@ -10,7 +10,9 @@ public class LevelGeneration : MonoBehaviour
     int GridSizeX, GridSizeY;
     public int NumRooms;
     public GameObject MapSprite;
+    public float MapRoomGap;
     public float RoomGap;
+
     
     void Start()
     {
@@ -144,8 +146,8 @@ public class LevelGeneration : MonoBehaviour
                 continue;
 
             Vector2 DrawPos = R.GridPos;
-            DrawPos.x *= RoomGap/10;
-            DrawPos.y *= RoomGap/20;
+            DrawPos.x *= MapRoomGap/10;
+            DrawPos.y *= MapRoomGap/20;
             GameObject MapSpriteObj = Object.Instantiate(MapSprite, DrawPos, Quaternion.identity);
             MapSpriteObj.SetActive(true);
             MapSpriteSelector Mapper = MapSpriteObj.GetComponent<MapSpriteSelector>();
@@ -154,6 +156,12 @@ public class LevelGeneration : MonoBehaviour
             Mapper.Down = R.DoorBot;
             Mapper.Right = R.DoorRight;
             Mapper.Left = R.DoorLeft;
+
+            DrawPos.x *= RoomGap/10;
+            DrawPos.y *= RoomGap/10;
+            R.Type = (int)Mathf.Abs(R.GridPos.y);
+            //Debug.Log("Instantiating Room" + R.Type.ToString());
+            GameObject RoomPrefab = Instantiate(GameObject.Find("Room" + R.Type.ToString()), DrawPos, Quaternion.identity);
         }
     }
 }

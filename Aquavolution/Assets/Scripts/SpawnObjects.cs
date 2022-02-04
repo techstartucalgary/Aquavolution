@@ -7,8 +7,15 @@ public class SpawnObjects : MonoBehaviour
     public Camera Cam;
     public int MaxFood = 10;
     public int MaxEnemy = 5;
-
     public float Speed;
+
+    
+
+    // Magic numbers
+    public float XMinOffset = -25.414432f;
+    public float XMaxOffset = 17.665568f;
+    public float YMinOffset = 15.5339f;
+    public float YMaxOffset = 35.4139f;
 
     void Start()
     {
@@ -26,7 +33,7 @@ public class SpawnObjects : MonoBehaviour
     {
         for (int i = 0; i < MaxCount; i++)
         {
-            int SpawnX = Random.Range(0, Screen.width);
+            int SpawnX = Random.Range(0, Screen.width); 
             int SpawnY = Random.Range(0, Screen.height);
 
             // Converts pixel values to world-space
