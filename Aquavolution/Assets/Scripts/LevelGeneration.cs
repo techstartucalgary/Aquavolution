@@ -6,12 +6,14 @@ public class LevelGeneration : MonoBehaviour
 {
     Vector2 WorldSize = new Vector2(4,4);
     Room[,] Rooms;
+    public GameObject[,] InstantiatedRooms;
     List<Vector2> TakenPositions = new List<Vector2>();
     int GridSizeX, GridSizeY;
     public int NumRooms;
     public GameObject MapSprite;
     public float MapRoomGap;
     public float RoomGap;
+    private Vector2 index;
 
     
     void Start()
@@ -20,6 +22,7 @@ public class LevelGeneration : MonoBehaviour
             NumRooms = Mathf.RoundToInt((WorldSize.x * 2) * WorldSize.y * 2);
         GridSizeX = Mathf.RoundToInt(WorldSize.x);
         GridSizeY = Mathf.RoundToInt(WorldSize.y);
+
         CreateRooms();
         SetRoomDoors();
         DrawMap();
@@ -27,6 +30,7 @@ public class LevelGeneration : MonoBehaviour
 
     void CreateRooms()
     {
+        InstantiatedRooms = new GameObject[GridSizeX * 2, GridSizeY * 2];
         Rooms = new Room[GridSizeX * 2, GridSizeY * 2];
         Rooms[GridSizeX, GridSizeY] = new Room(Vector2.zero, 1);
         TakenPositions.Insert(0, Vector2.zero);
@@ -55,7 +59,7 @@ public class LevelGeneration : MonoBehaviour
                     Debug.LogError("Error: Could not create with fewer neighbors than: " + NumberOfNeighbors(CheckPos, TakenPositions));            
             }
 
-            Rooms[(int)CheckPos.x + GridSizeX, (int) CheckPos.y + GridSizeY] = new Room(CheckPos, 0);
+            Rooms[(int)CheckPos.x + GridSizeX, (int)CheckPos.y + GridSizeY] = new Room(CheckPos, 0);
             TakenPositions.Insert(0, CheckPos);
         }
     }
@@ -162,6 +166,12 @@ public class LevelGeneration : MonoBehaviour
             R.Type = (int)Mathf.Abs(R.GridPos.y);
             //Debug.Log("Instantiating Room" + R.Type.ToString());
             GameObject RoomPrefab = Instantiate(GameObject.Find("Room" + R.Type.ToString()), DrawPos, Quaternion.identity);
+
+            Debug.Log("R: " + R);
+            Debug.Log("Rooms: " +  Rooms);
+            Debug.Log("Index: " + index);
+            //index = ExtensionMethods.CoordinatesOf<Room>(Rooms, R);
+            //InstantiatedRooms[(int)index.x, (int)index.y] = RoomPrefab;
         }
     }
 }

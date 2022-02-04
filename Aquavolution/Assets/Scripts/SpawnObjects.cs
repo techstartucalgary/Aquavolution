@@ -9,7 +9,7 @@ public class SpawnObjects : MonoBehaviour
     public int MaxEnemy = 5;
     public float Speed;
 
-    
+    public LevelGeneration LevelGenerator;
 
     // Magic numbers
     public float XMinOffset = -25.414432f;
@@ -19,6 +19,7 @@ public class SpawnObjects : MonoBehaviour
 
     void Start()
     {
+        LevelGenerator = gameObject.GetComponent<LevelGeneration>();
         RandomSpawn(Enemy, MaxEnemy);
 
         // Repeatedly generate food objects at Speed 
@@ -31,17 +32,24 @@ public class SpawnObjects : MonoBehaviour
     // Repeats this MaxCount amount of times
     void RandomSpawn(GameObject SpawnObj, int MaxCount)
     {
-        for (int i = 0; i < MaxCount; i++)
+        foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            int SpawnX = Random.Range(0, Screen.width); 
-            int SpawnY = Random.Range(0, Screen.height);
+            if (R == null)
+                continue;
 
-            // Converts pixel values to world-space
-            Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
-            // Instantiates Prefab
-            GameObject SpawnedObject = Instantiate(SpawnObj, SpawnPos, Quaternion.identity);
-            // Enables prefab
-            SpawnedObject.SetActive(true);
+            for (int i = 0; i < MaxCount; i++)
+            {
+                float SpawnX = Random.Range(R.transform.position.x + XMinOffset, R.transform.position.x + XMaxOffset);
+                float SpawnY = Random.Range(R.transform.position.y + YMinOffset, R.transform.position.y + YMaxOffset);
+
+                // Converts pixel values to world-space
+                //Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
+                Vector3 SpawnPos = new Vector3(SpawnX, SpawnY, Cam.nearClipPlane);
+                // Instantiates Prefab
+                GameObject SpawnedObject = Instantiate(SpawnObj, SpawnPos, Quaternion.identity);
+                // Enables prefab
+                SpawnedObject.SetActive(true);
+            }
         }
     }
 
