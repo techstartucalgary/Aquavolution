@@ -23,7 +23,7 @@ public class SpawnObjects : MonoBehaviour
         RandomSpawn(Enemy, MaxEnemy);
 
         // Repeatedly generate food objects at Speed 
-        InvokeRepeating("Generate", 0, Speed);
+        InvokeRepeating("GenerateFood", 0, Speed);
 
     }
 
@@ -42,27 +42,45 @@ public class SpawnObjects : MonoBehaviour
                 float SpawnX = Random.Range(R.transform.position.x + XMinOffset, R.transform.position.x + XMaxOffset);
                 float SpawnY = Random.Range(R.transform.position.y + YMinOffset, R.transform.position.y + YMaxOffset);
 
-                // Converts pixel values to world-space
-                //Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
+                // This code will be used to spawn different fish in different room types
+                /*
+                switch (R.name)
+                {
+                    case "Room0":
+                        SpawnObj = Fish0;
+                    case "Room1":
+                        SpawnObj = Fish1;
+                    case "Room2":
+                        SpawnObj = Fish2;
+                    case "Room3":
+                        SpawnObj = Fish4;
+                    default:
+                        break;
+                }
+                */
+
+                // Gets random points between bottom left and top right corner of the room
                 Vector3 SpawnPos = new Vector3(SpawnX, SpawnY, Cam.nearClipPlane);
-                // Instantiates Prefab
                 GameObject SpawnedObject = Instantiate(SpawnObj, SpawnPos, Quaternion.identity);
-                // Enables prefab
                 SpawnedObject.SetActive(true);
             }
         }
     }
 
-    void Generate()
+    void GenerateFood()
     {
-        int SpawnX = Random.Range(0, Screen.width);
-        int SpawnY = Random.Range(0, Screen.height);
+        foreach (GameObject R in LevelGenerator.InstantiatedRooms)
+        {
+            if (R == null)
+                continue;
 
-        // Converts pixel values to world-space
-        Vector3 SpawnPos = Cam.ScreenToWorldPoint(new Vector3(SpawnX, SpawnY, Cam.nearClipPlane));
-        // Instantiates Prefab
-        GameObject SpawnedObject = Instantiate(Food, SpawnPos, Quaternion.identity);
-        // Enables prefab
-        SpawnedObject.SetActive(true);
+            // Gets random points between bottom left and top right corner of the room
+            float SpawnX = Random.Range(R.transform.position.x + XMinOffset, R.transform.position.x + XMaxOffset);
+            float SpawnY = Random.Range(R.transform.position.y + YMinOffset, R.transform.position.y + YMaxOffset);
+
+            Vector3 SpawnPos = new Vector3(SpawnX, SpawnY, Cam.nearClipPlane);
+            GameObject SpawnedObject = Instantiate(Food, SpawnPos, Quaternion.identity);
+            SpawnedObject.SetActive(true);
+        }
     }
 }
