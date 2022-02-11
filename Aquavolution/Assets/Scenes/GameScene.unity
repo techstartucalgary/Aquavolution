@@ -1865,7 +1865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 23.090027, y: -1.9600067}
+  m_AnchoredPosition: {x: 23.090027, y: -1.960022}
   m_SizeDelta: {x: 200, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &475978823
@@ -12876,22 +12876,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a245a62293bef4046b2db6ad7f29da21, type: 3}
---- !u!58 &5181096025953541184
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096025953541186}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &5181096025953541186
 GameObject:
   m_ObjectHideFlags: 0
@@ -12902,7 +12886,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096025953541247}
   - component: {fileID: 5181096025953541246}
-  - component: {fileID: 5181096025953541184}
   m_Layer: 0
   m_Name: Skin 6
   m_TagString: Player
@@ -12975,22 +12958,6 @@ Transform:
   m_Father: {fileID: 709916449}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5181096025986394640
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096025986394642}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &5181096025986394642
 GameObject:
   m_ObjectHideFlags: 0
@@ -13001,7 +12968,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096025986394671}
   - component: {fileID: 5181096025986394670}
-  - component: {fileID: 5181096025986394640}
   m_Layer: 0
   m_Name: Skin 1
   m_TagString: Player
@@ -13149,7 +13115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096026427982221}
   - component: {fileID: 5181096026427982220}
-  - component: {fileID: 5181096026427982258}
   m_Layer: 0
   m_Name: Skin 2
   m_TagString: Player
@@ -13157,38 +13122,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5181096026427982258
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096026427982256}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!58 &5181096026596464409
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096026596464411}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &5181096026596464411
 GameObject:
   m_ObjectHideFlags: 0
@@ -13199,7 +13132,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096026596464422}
   - component: {fileID: 5181096026596464423}
-  - component: {fileID: 5181096026596464409}
   m_Layer: 0
   m_Name: Skin 7
   m_TagString: Player
@@ -13347,7 +13279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096026653802309}
   - component: {fileID: 5181096026653802308}
-  - component: {fileID: 5181096026653802362}
   m_Layer: 0
   m_Name: Skin 5
   m_TagString: Player
@@ -13355,22 +13286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5181096026653802362
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096026653802360}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &5181096026719235757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13587,7 +13502,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096026876100105}
   - component: {fileID: 5181096026876100104}
-  - component: {fileID: 5181096026876100150}
   m_Layer: 0
   m_Name: Skin 3
   m_TagString: Player
@@ -13595,22 +13509,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5181096026876100150
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096026876100148}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!4 &5181096027021322184
 Transform:
   m_ObjectHideFlags: 0
@@ -13686,7 +13584,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5181096027021322184}
   - component: {fileID: 5181096027021322185}
-  - component: {fileID: 5181096027021322231}
   m_Layer: 0
   m_Name: Skin 4
   m_TagString: Player
@@ -13694,19 +13591,3 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5181096027021322231
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181096027021322229}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
