@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class ExtensionMethods
-{
+{   
+    // Gets the index of an element in a 2D array and returns it as a Vector2. If the element cannot be found, returns -1, -1
     public static Vector2 CoordinatesOf<T>(T[,] ArrayInput, T Value)
     {
         int w = ArrayInput.GetLength(0); // width
