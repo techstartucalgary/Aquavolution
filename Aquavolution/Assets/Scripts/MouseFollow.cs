@@ -36,11 +36,6 @@ public class MouseFollow : MonoBehaviour
             Rb.AddForce((MousePosition - (Vector2)transform.position).normalized * GetMoveSpeed());
         }
         transform.up = MousePosition - (Vector2)transform.position;
-
-        if (transform.localEulerAngles.z < 180)
-            GetComponent<SpriteRenderer>().flipX = true;
-        else
-            GetComponent<SpriteRenderer>().flipX = false;
     }
 
     // Returns move speed, which gets lower as scale increases, to a minimum speed
