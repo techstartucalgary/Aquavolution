@@ -161,17 +161,15 @@ public class LevelGeneration : MonoBehaviour
             Mapper.Right = R.DoorRight;
             Mapper.Left = R.DoorLeft;
 
+            // Creates room objects and adds them to the array of Instantiated Rooms
             DrawPos.x *= RoomGap/10;
             DrawPos.y *= RoomGap/10;
             R.Type = (int)Mathf.Abs(R.GridPos.y);
-            //Debug.Log("Instantiating Room" + R.Type.ToString());
+
             GameObject RoomPrefab = Instantiate(GameObject.Find("Room" + R.Type.ToString()), DrawPos, Quaternion.identity);
 
-            Debug.Log("R: " + R);
-            Debug.Log("Rooms: " +  Rooms);
-            Debug.Log("Index: " + index);
-            //index = ExtensionMethods.CoordinatesOf<Room>(Rooms, R);
-            //InstantiatedRooms[(int)index.x, (int)index.y] = RoomPrefab;
+            index = ExtensionMethods.CoordinatesOf<Room>(Rooms, R);
+            InstantiatedRooms[(int)index.x, (int)index.y] = RoomPrefab;
         }
     }
 }
