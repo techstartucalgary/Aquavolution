@@ -23,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         RunBehavior();
         StartPosition = RB.position.x;
+        Size = 1;
     }
 
     void RunBehavior()

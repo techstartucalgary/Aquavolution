@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public static int Health;
     [SerializeField] 
     private Text ScoreCount;
-    private static float SizeChange = 0.2F;
+    private static float SizeChange = 0.05F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
     GameController GameController;
