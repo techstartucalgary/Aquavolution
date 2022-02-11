@@ -2882,6 +2882,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room0
       objectReference: {fileID: 0}
+    - target: {fileID: 612074202125539495, guid: 34928f5b477883a47b2827cf2952a6f7,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 612074202125539495, guid: 34928f5b477883a47b2827cf2952a6f7,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 759147101
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34928f5b477883a47b2827cf2952a6f7, type: 3}
 --- !u!1001 &3568542324198057452
