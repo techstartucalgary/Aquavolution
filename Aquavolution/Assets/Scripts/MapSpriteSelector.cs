@@ -20,61 +20,66 @@ public class MapSpriteSelector : MonoBehaviour
         PickColor();
     }
 
+	// Selects the correct sprite based on the positions of the doors of the room it represents
     void PickSprite()
     {
-        if (Up){
-			if (Down){
-				if (Right){
-					if (Left){
+        if (Up)
+		{
+			if (Down)
+			{
+				if (Right)
+				{
+					if (Left)
 						SR.sprite = UDRL;
-					}else{
+					else
 						SR.sprite = DRU;
-					}
-				}else if (Left){
+				}
+				else if (Left)
 					SR.sprite = ULD;
-				}else{
+				else
 					SR.sprite = UD;
-				}
-			}else{
-				if (Right){
-					if (Left){
+			}
+			else
+			{
+				if (Right)
+				{
+					if (Left)
 						SR.sprite = RUL;
-					}else{
+					else
 						SR.sprite = UR;
-					}
-				}else if (Left){
+				}
+				else if (Left)
 					SR.sprite = UL;
-				}else{
+				else
 					SR.sprite = U;
-				}
 			}
-			return;
 		}
-		if (Down){
-			if (Right){
-				if(Left){
+		else if (Down)
+		{
+			if (Right)
+			{
+				if(Left)
 					SR.sprite = LDR;
-				}else{
+				else
 					SR.sprite = DR;
-				}
-			}else if (Left){
+			}
+			else if (Left)
 				SR.sprite = DL;
-			}else{
+			else
 				SR.sprite = D;
-			}
-			return;
 		}
-		if (Right){
-			if (Left){
+		else if (Right)
+		{
+			if (Left)
 				SR.sprite = RL;
-			}else{
+			else
 				SR.sprite = R;
-			}
-		}else{
-			SR.sprite = L;
 		}
+		else
+			SR.sprite = L;
     }
 
+	// Sets color of the SpriteRenderer based on the sprite's type
     void PickColor()
     {
         if (Type == 0)
