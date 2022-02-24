@@ -6,14 +6,13 @@ using System.Threading;
 
 public class CodeTileMap : MonoBehaviour
 {
-    public Tilemap TMap;
+    private Tilemap[,] TMap;
     public TileBase Wall;
     public TileBase Blank;
-    public TileBase Debug;
-    Rect rect1;
-    Rect rect2;
-    Rect rect3;
-    Rect rect4;
+    public TileBase DebugTile;
+    public GameObject[,] RoomArray;
+    Rect standardRoom;
+    public Tilemap testTilemap;
     struct Rect
     {
         public TileBase Tile;
@@ -24,94 +23,153 @@ public class CodeTileMap : MonoBehaviour
     };
     void Start()
     {
+        RoomArray = gameObject.GetComponent<LevelGeneration>().InstantiatedRooms;
+        TMap = new Tilemap[RoomArray.GetLength(0), RoomArray.GetLength(1)];
+        CreateTMapArray(RoomArray);
+
         CreateRects();
-        StartCoroutine("Test");
+        CreateWalls();
     }
 
-
-
-    IEnumerator Test()
+    void CreateTMapArray(GameObject[,] _RoomArray)
     {
-        GenerateRect(rect1);
-        GenerateRect(rect2);
-        GenerateRect(rect3);
-        GenerateRect(rect4);
-        yield return new WaitForSeconds(1);
-        DeleteCenter(rect2);
-        DeleteCenter(rect3);
-        DeleteCenter(rect4);
-        yield return new WaitForSeconds(1);
-        ClearOutside(rect1, 10);
+        for (int x = 0; x < RoomArray.GetLength(1); x++)
+            for (int y = 0; y < RoomArray.GetLength(0); y++)
+                {
+                    if (RoomArray[x,y] != null)
+                        {
+                            Transform Trans = RoomArray[x,y].transform;
+                            TMap[x,y] = Trans.Find("TileMaps/WallGrid/Collisions").gameObject.GetComponent<Tilemap>();
+                        }
+                }
     }
 
-    // Generates a rectangle border
-    void GenerateRect(Rect __Rect)
+    void CreateWalls()
     {
-        for (int x = __Rect.XOffset; x < (__Rect.Width + __Rect.XOffset); x++)
-        {
-            for (int y = __Rect.YOffset; y < (__Rect.Height + __Rect.YOffset); y++)
+        foreach (Tilemap T in TMap)
             {
-                if ((x == __Rect.XOffset) || (x == __Rect.Width + __Rect.XOffset - 1) || (y == __Rect.YOffset) || (y == __Rect.Height + __Rect.YOffset - 1))
-                    TMap.SetTile(new Vector3Int(x, y, 0), __Rect.Tile);
+                if (T != null)
+                {
+                    GenerateRoom(standardRoom, T);
+                    CreateVariation(T);
+                    ClearOutside(standardRoom, 15, T);
+                }
+            }
+    }
+
+    // Generates a rectangle border with gaps for doors
+    void GenerateRoom(Rect _Rect, Tilemap _TMap)
+    {
+        for (int x = 0; x < _Rect.Width; x++)
+        {
+            for (int y = 0; y < _Rect.Height; y++)
+            {
+                if (   
+                    ((x == 0) && ( (y < 6) || (y > 15) ) )
+                    || ((x == _Rect.Width - 1)  && ( (y < 6) || (y > 15) ) )
+                    || ((y == 0) && ( (x < 19) || (x > 29) ) )
+                    || ((y == _Rect.Height - 1) && ( (x < 19) || (x > 29)) )
+                    )
+                        _TMap.SetTile(new Vector3Int(x + _Rect.XOffset, y + _Rect.YOffset, 0), _Rect.Tile);
             }
         }
     }
 
-    // Deletes center of rect passed
-     void DeleteCenter(Rect __Rect)
+    // Generates a rectangle border
+    void GenerateRect(Rect _Rect, Tilemap _TMap)
     {
-        for (int x = __Rect.XOffset; x < (__Rect.Width + __Rect.XOffset); x++)
+        for (int x = 0; x < _Rect.Width; x++)
         {
-            for (int y = __Rect.YOffset; y < (__Rect.Height + __Rect.YOffset); y++)
+            for (int y = 0; y < _Rect.Height; y++)
             {
-                if ((x != __Rect.XOffset) && (x != __Rect.Width + __Rect.XOffset - 1) && (y != __Rect.YOffset) && (y != __Rect.Height + __Rect.YOffset - 1))
-                    TMap.SetTile(new Vector3Int(x, y, 0), Blank);
+                if ( (x == 0) || (x == _Rect.Width - 1) || (y == 0) || (y == _Rect.Height - 1) )
+                        _TMap.SetTile(new Vector3Int(x + _Rect.XOffset, y + _Rect.YOffset, 0), _Rect.Tile);
+            }
+        }
+    }
+
+    void CreateVariation(Tilemap _T)
+    {
+            bool XLow = false;
+            bool XMax = false;
+            bool YLow = false;
+            bool YMax = false;
+        for (int i = 0; i < Random.Range(0, 5); i++)
+        {
+            Rect rect;
+            rect.Tile = Wall;
+            rect.Height = Random.Range(7, 10);
+            rect.Width = Random.Range(8, 14);
+
+            if ((Random.Range(0,2) == 0) && (XLow == false))
+            {
+                rect.XOffset = standardRoom.XOffset + Random.Range(-3, 5);
+                XLow = true;
+            }
+            else if (XMax == false)
+            {
+                rect.XOffset = standardRoom.XOffset + standardRoom.Width + Random.Range(-5, -1);
+                XMax = true;
+            }
+            else
+                rect.XOffset = 0;
+
+            if ((Random.Range(0,2) == 0) && (YLow == false))
+            {
+                rect.YOffset = standardRoom.YOffset + Random.Range(-3, -1);
+                YLow = true;
+            }
+            else if (YMax == false)
+            {
+                rect.YOffset = standardRoom.YOffset + standardRoom.Height + Random.Range (-3, -1);
+                YMax = true;
+            }
+            else
+                rect.YOffset = 0;
+
+            GenerateRect(rect, _T);
+            DeleteCenter(rect, _T);
+        }        
+    }
+
+    // Deletes center of rect passed
+     void DeleteCenter(Rect _Rect, Tilemap _TMap)
+    {
+        for (int x = _Rect.XOffset; x < (_Rect.Width + _Rect.XOffset); x++)
+        {
+            for (int y = _Rect.YOffset; y < (_Rect.Height + _Rect.YOffset); y++)
+            {
+                if ((x != _Rect.XOffset) && (x != _Rect.Width + _Rect.XOffset - 1) && (y != _Rect.YOffset) && (y != _Rect.Height + _Rect.YOffset - 1))
+                    _TMap.SetTile(new Vector3Int(x, y, 0), Blank);
             }
         }
     }
 
     // Deletes in a range outside of rect passed
-    void ClearOutside(Rect __Rect, int Radius)
+    void ClearOutside(Rect _Rect, int Radius, Tilemap _TMap)
     {
-        for (int x = __Rect.XOffset - Radius; x < (__Rect.Width + __Rect.XOffset + Radius); x++)
+        for (int x = _Rect.XOffset - Radius; x < (_Rect.Width + _Rect.XOffset + Radius); x++)
         {
-            for (int y = __Rect.YOffset - Radius; y < (__Rect.Height + __Rect.YOffset + Radius); y++)
+            for (int y = _Rect.YOffset - Radius; y < (_Rect.Height + _Rect.YOffset + Radius); y++)
             {
-                if ((x < __Rect.XOffset) || (x >= __Rect.Width + __Rect.XOffset) || (y < __Rect.YOffset) || (y >= __Rect.Height + __Rect.YOffset))
-                    TMap.SetTile(new Vector3Int(x, y, 0), Debug);
+                if ((x < _Rect.XOffset) || (x >= _Rect.Width + _Rect.XOffset) || (y < _Rect.YOffset) || (y >= _Rect.Height + _Rect.YOffset))
+                    _TMap.SetTile(new Vector3Int(x, y, 0), DebugTile);
             }
         }
     }
 
     void CreateRects()
     {
-        rect1.Tile = Wall;
-        rect1.XOffset = 0;
-        rect1.YOffset = 0;
-        rect1.Width = 20;
-        rect1.Height = 20;
-
-        rect2.Tile = Wall;
-        rect2.XOffset = (int)Random.Range(16, 20);
-        rect2.YOffset = (int)Random.Range(16, 20);
-        rect2.Width = (int)Random.Range(5, 8);
-        rect2.Height = (int)Random.Range(5, 8);
-
-        rect3.Tile = Wall;
-        rect3.XOffset = (int)Random.Range(-4, 4);
-        rect3.YOffset = (int)Random.Range(16, 20);
-        rect3.Width = (int)Random.Range(5, 8);
-        rect3.Height = (int)Random.Range(5, 8);
-
-        rect4.Tile = Wall;
-        rect4.XOffset = (int)Random.Range(16, 20);
-        rect4.YOffset = (int)Random.Range(-4, -4);
-        rect4.Width = (int)Random.Range(5, 8);
-        rect4.Height = (int)Random.Range(5, 8);
+        standardRoom.Tile = Wall;
+        standardRoom.XOffset = -25;
+        standardRoom.YOffset = 14;
+        standardRoom.Width = 45;
+        standardRoom.Height = 22;
     }
 
     
-    /* // Delete overlapping tiles
+    // Delete overlapping tiles. This isn't used in this script but might be useful at some point in future
+    /*
     void NANDTileMap(Rect __Rect0, Rect __Rect1)
     {
         int Offset0 = __Rect0.Offset;
