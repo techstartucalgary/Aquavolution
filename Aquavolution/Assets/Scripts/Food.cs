@@ -6,7 +6,6 @@ public class Food : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D Col)        // This method is called whenever a collision is detected, and passes the Component which Food collided with
     {
-        Debug.Log("ASPDIO");
         if (Col.gameObject.tag == "Player" || Col.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);

@@ -13,22 +13,24 @@ public class PlayerStats : MonoBehaviour
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
     GameController GameController;
+    public GameObject Canvas;
+    private UserInterface UI;
 
     // Start is called before the first frame update
     void Start()
     {
         //Set up initial values when the scene starts
-        FoodCount = 0;
+        FoodCount = 9;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        UI = Canvas.GetComponent<UserInterface>();
         //set initial transform scale for player
         Player.transform.localScale = new Vector3(1, 1, 1);
     }
 
     void OnTriggerEnter2D(Collider2D Col)
     {
-        Debug.Log("kjasd");
         if (Col.tag == "Food") 
         {
             IncreaseFood(1);        
@@ -84,6 +86,9 @@ public class PlayerStats : MonoBehaviour
     {
         FoodCount += IncreaseVal;
         DisplayScoreToScreen(FoodCount);
+
+        if (FoodCount % 10 == 0)
+            UI.DisplayLevelUp(true);
     }
 
     void DisplayScoreToScreen(int FoodCount){

@@ -1706,7 +1706,7 @@ MonoBehaviour:
   Skin5: {fileID: 120228395}
   Skin6: {fileID: 2115255965}
   Skin7: {fileID: 1531268010}
-  ActiveSkin: {fileID: 0}
+  Canvas: {fileID: 2021550200}
 --- !u!114 &1219186649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1735,6 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCount: {fileID: 1857817264}
+  Canvas: {fileID: 2021550200}
 --- !u!4 &1230023714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3568542325117618638, guid: 382192801e79e634e827365e12ddef26,
@@ -1838,7 +1839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1365580478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2221,7 +2222,6 @@ MonoBehaviour:
   Cam: {fileID: 1689046969}
   MaxEnemy: 4
   SpawnRate: 2
-  LevelGenerator: {fileID: 0}
 --- !u!4 &1557208254
 Transform:
   m_ObjectHideFlags: 0
@@ -3009,6 +3009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90ad48b628b3a149a2b22fe8cbd7245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelUpButton: {fileID: 1365580477}
 --- !u!114 &2021550202
 MonoBehaviour:
   m_ObjectHideFlags: 0
