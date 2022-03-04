@@ -38,8 +38,8 @@ public class CodeTileMap : MonoBehaviour
                 {
                     if (RoomArray[x,y] != null)
                         {
-                            Transform Trans = RoomArray[x,y].transform;
-                            TMap[x,y] = Trans.Find("TileMaps/WallGrid/Collisions").gameObject.GetComponent<Tilemap>();
+                            TMap[x,y] = RoomArray[x,y].transform.Find
+                                ("TileMaps/WallGrid/Collisions").gameObject.GetComponent<Tilemap>();
                         }
                 }
     }

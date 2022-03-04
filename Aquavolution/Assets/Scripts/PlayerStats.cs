@@ -26,15 +26,23 @@ public class PlayerStats : MonoBehaviour
         Player.transform.localScale = new Vector3(1, 1, 1);
     }
 
+    void OnTriggerEnter2D(Collider2D Col)
+    {
+        Debug.Log("kjasd");
+        if (Col.tag == "Food") 
+        {
+            IncreaseFood(1);        
+        }
+
+        if (Col.gameObject.tag == "Waste")
+        {
+            DecreaseHealth();
+        }
+    }
+
     //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
-        //on collision with an object of type food
-        if (Col.gameObject.tag == "Food") 
-        {
-            IncreaseFood(1);            
-        }
-
         if (Col.gameObject.tag == "Enemy")
         {
             // Get behavior script of enemy we touch
@@ -51,11 +59,6 @@ public class PlayerStats : MonoBehaviour
                 EnemyScript.GetEaten();
                 IncreaseFood(EnemyScript.Size);
             }
-        }
-
-        if (Col.gameObject.tag == "Waste")
-        {
-            DecreaseHealth();
         }
     }
 
