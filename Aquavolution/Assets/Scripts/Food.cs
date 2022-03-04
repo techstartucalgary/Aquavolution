@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D Col)        // This method is called whenever a collision is detected, and passes the Component which Food collided with
+    private void OnTriggerEnter2D(Collider2D Col)        // This method is called whenever a collision is detected, and passes the Component which Food collided with
     {
-        // Destroy food only if collides with player or enemy
+        Debug.Log("ASPDIO");
         if (Col.gameObject.tag == "Player" || Col.gameObject.tag == "Enemy")
         {
-            gameObject.SetActive(false);                // Sets Food to inactive, so it does not show up. Could also delete entirely
+            Destroy(gameObject);
         }
     }
 }
