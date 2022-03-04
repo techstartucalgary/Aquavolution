@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int FoodCount;
-    public static int Health;
     [SerializeField] 
     private Text ScoreCount;
+    public static int FoodCount;
+    public static int Health;
     private static float SizeChange = 0.05F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
