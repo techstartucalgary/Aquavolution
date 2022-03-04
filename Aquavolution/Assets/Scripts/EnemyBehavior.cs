@@ -3,15 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
-{
-    // TODO: Why do we need these?
-
-    // private Transform Transform;
-    // private SpriteRenderer SR;
-    // private float StartPosition;
-    // public float PatrolLength;
-    // private Vector3 OldPos = Vector3.zero;
-    
+{   
     private Rigidbody2D RB;
     public float MoveSpeed;
     public int Size;
@@ -25,10 +17,8 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // SR = GetComponent<SpriteRenderer>();
         RB = GetComponent<Rigidbody2D>();
         RunBehavior();
-        // StartPosition = RB.position.x;
         Size = 1;
     }
 
@@ -47,7 +37,6 @@ public class EnemyBehavior : MonoBehaviour
     {        
         if (Patrolling)
         {
-            // RB.MovePosition(new Vector2((Mathf.Sin((2 * Mathf.PI * (Time.time*MoveSpeed/PatrolLength)) - (Mathf.PI / 2)) * (PatrolLength/2) + (PatrolLength/2))+StartPosition,RB.position.y));
             RB.velocity = new Vector2(transform.localScale.x, 0) * MoveSpeed;
         }
     }
