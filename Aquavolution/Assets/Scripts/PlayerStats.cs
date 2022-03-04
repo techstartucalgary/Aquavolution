@@ -28,7 +28,6 @@ public class PlayerStats : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D Col)
     {
-        Debug.Log("kjasd");
         if (Col.tag == "Food") 
         {
             IncreaseFood(1);        
