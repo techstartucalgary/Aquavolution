@@ -5,12 +5,16 @@ using UnityEngine;
 public class ChangeSkin : MonoBehaviour
 {
     public GameObject Skin1, Skin2, Skin3, Skin4, Skin5, Skin6, Skin7;
-    public GameObject ActiveSkin;
+    GameObject ActiveSkin;
     int WhichSkinIsOn = 1;
+
+    public GameObject Canvas;
+    private UserInterface UI;
 
     // Start is called before the first frame update
     void Start()
     {
+        UI = Canvas.GetComponent<UserInterface>();
         ActiveSkin = Skin1;
         Skin1.gameObject.SetActive (true);
         Skin2.gameObject.SetActive (false);
@@ -91,6 +95,7 @@ public class ChangeSkin : MonoBehaviour
                 Skin7.gameObject.SetActive (true);
                 break;
         }
+        UI.DisplayLevelUp(false);
     }
     private void FixedUpdate(){
         if (transform.localEulerAngles.z < 180)
