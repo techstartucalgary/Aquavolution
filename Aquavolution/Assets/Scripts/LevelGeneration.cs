@@ -1,24 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LevelGeneration : MonoBehaviour
 {
-    Vector2 WorldSize = new Vector2(4,4);
+    Vector2 WorldSize = new Vector2(10, 10);
     Room[,] Rooms;
     public GameObject[,] InstantiatedRooms;
     List<Vector2> TakenPositions = new List<Vector2>();
     int GridSizeX, GridSizeY;
     public int NumRooms;
-    public GameObject MapSprite;
-    public float MapRoomGap;
+    //public GameObject MapSprite;
+    //public float MapRoomGap;
     public float RoomGapX;
     public float RoomGapY;
     private Vector2 index;
+    public int BossDepth;
 
     void Start()
     {
         // Makes sure we don't have too many rooms in our world
+        if (NumRooms < BossDepth)
+            Debug.LogWarning("There are less rooms than the specified boss depth, no boss room will spawn.");
+
         if (NumRooms >= ((WorldSize.x * 2) * (WorldSize.y * 2)) )
             NumRooms = Mathf.RoundToInt((WorldSize.x * 2) * WorldSize.y * 2);
         GridSizeX = Mathf.RoundToInt(WorldSize.x);
@@ -50,15 +55,15 @@ public class LevelGeneration : MonoBehaviour
             CheckPos = NewPosition();
         
             // If a room has > 1 neighbors, there is a chance for it to get another neighbor
-            if (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Random.value > RandomCompare)
+            if (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && UnityEngine.Random.value > RandomCompare)
             {
                 int Iterations = 0;
-                do
+                
+                while (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Iterations < 50)
                 {
                     CheckPos = NewPosition();
                     Iterations++;
                 }
-                while (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Iterations < 50);
 
                 if (Iterations >= 50)
                     Debug.LogError("Error: Could not create with fewer neighbors than: " + NumberOfNeighbors(CheckPos, TakenPositions));            
@@ -77,22 +82,40 @@ public class LevelGeneration : MonoBehaviour
         Vector2 CheckingPos = Vector2.zero;
         do
         {
-            int Index = Mathf.RoundToInt(Random.value * (TakenPositions.Count - 1));
+            int Index = Mathf.RoundToInt(UnityEngine.Random.value * (TakenPositions.Count - 1));
+            
             x = (int) TakenPositions[Index].x;
             y = (int) TakenPositions[Index].y;
-            bool Down = (Random.value < 0.5f);
-            bool Right = (Random.value < 0.5f);
+            
+            bool Down, Right;
+            int DeepestRoom = GetDeepestRoom();
+
+            // Make sure we're only going down if there aren't enough rooms left to go left or right
+            /*
+            if (TakenPositions.Count - NumRooms == DeepestRoom)
+                Down = true;
+            else if (DeepestRoom < BossDepth)
+                Down = true;
+                //Down = (UnityEngine.Random.value < Math.Abs( (DeepestRoom+1)/BossDepth ));
+            else
+                Down = false;
+            */
+            
+            // TODO: Infinite loop happens when Down is set to false for some reason
+            Down = (UnityEngine.Random.value < 0.5f);
+            //Down = false;
+            Right = (UnityEngine.Random.value < 0.5f);
+
+            
             if (Down)
                 y -= 1;
+            else if (Right)
+                x += 1;
             else
-            {
-                if (Right)
-                    x += 1;
-                else
-                    x -= 1;
-            }
+                x -= 1;
+
             CheckingPos = new Vector2(x,y);
-        } 
+        }
         while (TakenPositions.Contains(CheckingPos) || x >= GridSizeX || x < -GridSizeX || y >= GridSizeY || y < -GridSizeY);
 
         return CheckingPos;
@@ -178,7 +201,7 @@ public class LevelGeneration : MonoBehaviour
             Vector2 DrawPos = R.GridPos;
             DrawPos.x *= RoomGapX/100;
             DrawPos.y *= RoomGapY/100;
-            R.Type = (int)Mathf.Abs(R.GridPos.y);
+            R.Type = Mathf.Abs((int)R.GridPos.y/10);
 
             GameObject RoomPrefab = Instantiate(GameObject.Find("Room" + R.Type.ToString()), DrawPos, Quaternion.identity);
 
@@ -208,5 +231,16 @@ public class LevelGeneration : MonoBehaviour
             if (R.DoorRight)
                 Destroy(CurrentRoom.transform.GetChild(1).Find("RightDoorGrid").gameObject);
         }
+    }
+
+    int GetDeepestRoom()
+    {
+        int MaxDepth = 0;
+        foreach (Vector2 Pos in TakenPositions)
+        {
+            if (Pos.y < MaxDepth)
+                MaxDepth = (int)Pos.y;
+        }
+        return MaxDepth;
     }
 }
