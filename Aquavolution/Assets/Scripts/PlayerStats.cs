@@ -35,11 +35,6 @@ public class PlayerStats : MonoBehaviour
         {
             IncreaseFood(1);        
         }
-
-        if (Col.gameObject.tag == "Waste")
-        {
-            DecreaseHealth();
-        }
     }
 
     //method is called whenever a collision is detected
@@ -62,6 +57,11 @@ public class PlayerStats : MonoBehaviour
                 IncreaseFood(EnemyScript.Size);
             }
         }
+
+        if (Col.gameObject.tag == "Waste")
+        {
+            DecreaseHealth();
+        }
     }
 
     void Die()
@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour
         GameController.GameOver(FoodCount);
     }
 
-    void DecreaseHealth() {
+    public void DecreaseHealth() {
         
         UserInterface.UpdateHealthBar(); //update heath bar UI
 

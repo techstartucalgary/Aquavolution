@@ -67,6 +67,14 @@ public class EnemyBehavior : MonoBehaviour
         {
             FlipEnemy();
         }
+        if (Col.gameObject.tag == "Waste")
+        {
+            Size--;
+            if (Size < 0){
+                GetEaten();
+            }
+            FlipEnemy();
+        }
     }
 
     void IncreaseFood(int IncreaseVal)
