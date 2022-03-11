@@ -4,7 +4,15 @@ using UnityEngine.Tilemaps;
 public class SpawnObjects : MonoBehaviour
 {
     public GameObject Food;
+
     public GameObject Enemy;
+
+    public GameObject Enemy0;
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
+    public GameObject Enemy4;
+
     public Camera Cam;
     public int MaxEnemy = 5;
     public float SpawnRate;
@@ -14,7 +22,9 @@ public class SpawnObjects : MonoBehaviour
     void Start()
     {
         LevelGenerator = gameObject.GetComponent<LevelGeneration>();
-        RandomSpawn(Enemy, MaxEnemy); 
+        RandomSpawn(Enemy1, MaxEnemy);
+
+        // Repeatedly generate food objects at Speed 
         InvokeRepeating("GenerateFood", 0, SpawnRate);
     }
 
@@ -30,23 +40,28 @@ public class SpawnObjects : MonoBehaviour
 
             for (int i = 0; i < MaxCount; i++)
             {
-                // This code can be used to spawn different fish in different room types
-                /*
-                switch (R.name)
-                {
+                string RoomNumber = R.name.Substring(0, 5);
+                switch (RoomNumber) {
                     case "Room0":
-                        SpawnObj = Fish0;
+                        SpawnObj = Enemy0;
+                        break;
                     case "Room1":
-                        SpawnObj = Fish1;
+                        SpawnObj = Enemy1;
+                        break;
                     case "Room2":
-                        SpawnObj = Fish2;
+                        SpawnObj = Enemy2;
+                        break;
                     case "Room3":
-                        SpawnObj = Fish4;
+                        SpawnObj = Enemy3;
+                        break;
+                    case "Room4":
+                        SpawnObj = Enemy4;
+                        break;
                     default:
+                        SpawnObj = Enemy;
                         break;
                 }
-                */
-                
+
                 GameObject SpawnedObject = Instantiate(SpawnObj, GetLocation(R), Quaternion.identity);
                 SpawnedObject.SetActive(true);
             }

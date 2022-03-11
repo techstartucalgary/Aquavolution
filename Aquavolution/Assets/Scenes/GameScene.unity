@@ -832,7 +832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564969629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 24.699999, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 24.699999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 776047801}
@@ -2219,6 +2219,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Food: {fileID: 3032787666406475012, guid: 9186b2957c30f9346a211887bfedb199, type: 3}
   Enemy: {fileID: 7481219871073885888, guid: 33d243ba9822dec41836cc5b42e800db, type: 3}
+  Enemy0: {fileID: 7481219871073885888, guid: 33d243ba9822dec41836cc5b42e800db, type: 3}
+  Enemy1: {fileID: 6180839345621439297, guid: 3a589789f407021459b52ffdd7882ee6, type: 3}
+  Enemy2: {fileID: 5973823181312447272, guid: 7e5ef38f6a42b1047b6b1a8bc1ebfe8b, type: 3}
+  Enemy3: {fileID: 7481219871073885888, guid: 33d243ba9822dec41836cc5b42e800db, type: 3}
+  Enemy4: {fileID: 6180839345621439297, guid: 3a589789f407021459b52ffdd7882ee6, type: 3}
   Cam: {fileID: 1689046969}
   MaxEnemy: 4
   SpawnRate: 2
@@ -2483,7 +2488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689046968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 24.699999, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 24.699999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

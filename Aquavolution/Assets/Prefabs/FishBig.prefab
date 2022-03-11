@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4941755353630458
 Transform:
   m_ObjectHideFlags: 0
@@ -154,5 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191bd2eea355f4c4da77292f7aed2656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatrolLength: 10
   MoveSpeed: 15
+  Size: 0
+  SightStart: {fileID: 0}
+  SightEnd: {fileID: 0}
