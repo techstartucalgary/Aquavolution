@@ -1549,7 +1549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005818241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 119.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 581041401}
@@ -2194,11 +2194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2222150f8f6e816468a2052dad6eafdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumRooms: 20
-  MapSprite: {fileID: 825569546}
-  MapRoomGap: 1.5
+  NumRooms: 100
   RoomGapX: 4400
   RoomGapY: 2100
+  BossDepth: 50
 --- !u!114 &1557208253
 MonoBehaviour:
   m_ObjectHideFlags: 0
