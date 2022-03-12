@@ -69,10 +69,10 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (Col.gameObject.tag == "Waste")
         {
-            Size--;
-            if (Size < 0){
-                GetEaten();
-            }
+            // Size--;
+            // if (Size < 0){
+            //     GetEaten();
+            // }
             FlipEnemy();
         }
     }
