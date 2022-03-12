@@ -4,6 +4,8 @@ using UnityEngine.Tilemaps;
 public class SpawnObjects : MonoBehaviour
 {
     public GameObject Food;
+    public GameObject Plastic;
+    public int MaxPlastic = 3;
 
     public GameObject Enemy;
 
@@ -23,6 +25,7 @@ public class SpawnObjects : MonoBehaviour
     {
         LevelGenerator = gameObject.GetComponent<LevelGeneration>();
         RandomSpawn(Enemy1, MaxEnemy);
+        GeneratePlastic(MaxPlastic);
 
         // Repeatedly generate food objects at Speed 
         InvokeRepeating("GenerateFood", 0, SpawnRate);
@@ -77,6 +80,21 @@ public class SpawnObjects : MonoBehaviour
 
             GameObject SpawnedObject = Instantiate(Food, GetLocation(R), Quaternion.identity);
             SpawnedObject.SetActive(true);
+        }
+    }
+
+    void GeneratePlastic(int MaxCount)
+    {
+        foreach (GameObject R in LevelGenerator.InstantiatedRooms)
+        {
+            if (R == null)
+                continue;
+
+            for (int i = 0; i < MaxCount; i++)
+            {
+                GameObject SpawnedObject = Instantiate(Plastic, GetLocation(R), Quaternion.identity);
+                SpawnedObject.SetActive(true);
+            }
         }
     }
 
