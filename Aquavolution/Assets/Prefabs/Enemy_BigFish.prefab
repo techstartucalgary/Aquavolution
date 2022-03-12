@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7477512003855025678}
   - component: {fileID: 7288947199660372836}
-  - component: {fileID: 7429607122141860654}
   - component: {fileID: 7386081686322690442}
+  - component: {fileID: -6098216231362424286}
   - component: {fileID: 7450401327892314306}
   - component: {fileID: 6713660066868745787}
   m_Layer: 0
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7429607122141860654
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481219871073885888}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!95 &7386081686322690442
 Animator:
   serializedVersion: 3
@@ -122,6 +106,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &-6098216231362424286
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481219871073885888}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.54, y: 0.49}
+    newSize: {x: 0.54, y: 0.49}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17, y: 0.185}
+      - {x: 0.14999999, y: 0.225}
+      - {x: 0.08, y: 0.225}
+      - {x: -0.02, y: 0.16499999}
+      - {x: -0.17, y: 0.125}
+      - {x: -0.24, y: 0.005}
+      - {x: -0.24, y: -0.155}
+      - {x: -0.22999999, y: -0.175}
+      - {x: 0, y: -0.205}
+      - {x: 0.17999999, y: -0.205}
+      - {x: 0.22999999, y: -0.185}
+      - {x: 0.24, y: -0.145}
+      - {x: 0.24, y: 0.015}
 --- !u!50 &7450401327892314306
 Rigidbody2D:
   serializedVersion: 4
