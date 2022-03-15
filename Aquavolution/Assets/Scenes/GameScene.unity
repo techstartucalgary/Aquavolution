@@ -2218,7 +2218,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Food: {fileID: 3032787666406475012, guid: 9186b2957c30f9346a211887bfedb199, type: 3}
-  Plastic: {fileID: 8789476517306336377, guid: 0b23acf1e0828544dafacd56ab44ee6a, type: 3}
+  PlasticBottle: {fileID: 8789476517306336377, guid: 0b23acf1e0828544dafacd56ab44ee6a,
+    type: 3}
+  PlasticStraw: {fileID: 214647977296552015, guid: f0e3b2cb2e161954396a95c628df97c9,
+    type: 3}
   MaxPlastic: 3
   Enemy: {fileID: 7481219871073885888, guid: 33d243ba9822dec41836cc5b42e800db, type: 3}
   Enemy0: {fileID: 6180839345621439297, guid: 3a589789f407021459b52ffdd7882ee6, type: 3}
