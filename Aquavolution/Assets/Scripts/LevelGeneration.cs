@@ -47,7 +47,7 @@ public class LevelGeneration : MonoBehaviour
         {
             float RandomPerc = ((float) i / ((float) NumRooms-1));
             RandomCompare = Mathf.Lerp(RandomCompareStart, RandomCompareEnd, RandomPerc);
-            CheckPos = NewPosition();
+            CheckPos = FindNewValidRoomPos();
         
             // If a room has > 1 neighbors, there is a chance for it to get another neighbor
             if (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Random.value > RandomCompare)
@@ -55,7 +55,7 @@ public class LevelGeneration : MonoBehaviour
                 int Iterations = 0;
                 do
                 {
-                    CheckPos = NewPosition();
+                    CheckPos = FindNewValidRoomPos();
                     Iterations++;
                 }
                 while (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Iterations < 50);
@@ -70,8 +70,7 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-    // Randomly selects an existing room, then randomly determines the location for a new room based on that selected room
-    Vector2 NewPosition()
+    Vector2 FindNewValidRoomPos()
     {
         int x = 0, y = 0;
         Vector2 CheckingPos = Vector2.zero;
