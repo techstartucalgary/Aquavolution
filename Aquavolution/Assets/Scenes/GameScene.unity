@@ -123,12 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1839735485 &7610878 stripped
-Tilemap:
-  m_CorrespondingSourceObject: {fileID: 612074201076972470, guid: 34928f5b477883a47b2827cf2952a6f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 612074201006913787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &82655824
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564969629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 24.699999, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 24.699999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 776047801}
@@ -2258,7 +2252,10 @@ MonoBehaviour:
   Wall: {fileID: 11400000, guid: e58cd60fe3fad2b47adfe6d751955dd4, type: 2}
   Blank: {fileID: 0}
   DebugTile: {fileID: 0}
-  testTilemap: {fileID: 7610878}
+  DoorYStart: 6
+  DoorYEnd: 15
+  DoorXStart: 19
+  DoorXEnd: 29
 --- !u!1001 &1621125226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2490,7 +2487,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689046968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 24.699999, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 24.699999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
