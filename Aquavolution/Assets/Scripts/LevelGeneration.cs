@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -97,7 +97,6 @@ public class LevelGeneration : MonoBehaviour
                 y = (int) TakenPositions[Index].y;                    
             }
             while ((y == BossDepth) && (GetDeepestRoom().y == BossDepth));
-
 
             bool Down, Right;
 
