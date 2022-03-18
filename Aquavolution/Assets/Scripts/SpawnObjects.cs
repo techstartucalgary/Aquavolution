@@ -4,7 +4,8 @@ using UnityEngine.Tilemaps;
 public class SpawnObjects : MonoBehaviour
 {
     public GameObject Food;
-    public GameObject Plastic;
+    public GameObject PlasticBottle;
+    public GameObject PlasticStraw;
     public int MaxPlastic = 3;
 
     public GameObject Enemy;
@@ -92,7 +93,9 @@ public class SpawnObjects : MonoBehaviour
 
             for (int i = 0; i < MaxCount; i++)
             {
-                GameObject SpawnedObject = Instantiate(Plastic, GetLocation(R), Quaternion.identity);
+                GameObject SpawnedObject = Instantiate(PlasticBottle, GetLocation(R), Quaternion.identity);
+                SpawnedObject.SetActive(true);
+                SpawnedObject = Instantiate(PlasticStraw, GetLocation(R), Quaternion.identity);
                 SpawnedObject.SetActive(true);
             }
         }
