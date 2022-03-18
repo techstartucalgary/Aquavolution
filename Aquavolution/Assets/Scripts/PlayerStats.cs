@@ -5,36 +5,41 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int FoodCount;
-    public static int Health;
     [SerializeField] 
     private Text ScoreCount;
+    public static int FoodCount;
+    public static int Health;
     private static float SizeChange = 0.05F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
     GameController GameController;
+    public GameObject Canvas;
+    private UserInterface UI;
 
     // Start is called before the first frame update
     void Start()
     {
         //Set up initial values when the scene starts
-        FoodCount = 0;
+        FoodCount = 9;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        UI = Canvas.GetComponent<UserInterface>();
         //set initial transform scale for player
         Player.transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    void OnTriggerEnter2D(Collider2D Col)
+    {
+        if (Col.tag == "Food") 
+        {
+            IncreaseFood(1);        
+        }
     }
 
     //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
-        //on collision with an object of type food
-        if (Col.gameObject.tag == "Food") 
-        {
-            IncreaseFood(1);            
-        }
-
         if (Col.gameObject.tag == "Enemy")
         {
             // Get behavior script of enemy we touch
@@ -65,7 +70,7 @@ public class PlayerStats : MonoBehaviour
         GameController.GameOver(FoodCount);
     }
 
-    void DecreaseHealth() {
+    public void DecreaseHealth() {
         
         UserInterface.UpdateHealthBar(); //update heath bar UI
 
@@ -81,6 +86,9 @@ public class PlayerStats : MonoBehaviour
     {
         FoodCount += IncreaseVal;
         DisplayScoreToScreen(FoodCount);
+
+        if (FoodCount % 10 == 0)
+            UI.DisplayLevelUp(true);
     }
 
     void DisplayScoreToScreen(int FoodCount){
