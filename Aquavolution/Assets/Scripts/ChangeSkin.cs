@@ -16,92 +16,76 @@ public class ChangeSkin : MonoBehaviour
     {
         UI = Canvas.GetComponent<UserInterface>();
         ActiveSkin = Skin1;
-        Skin1.gameObject.SetActive (true);
-        Skin2.gameObject.SetActive (false);
-        Skin3.gameObject.SetActive (false);
-        Skin4.gameObject.SetActive (false);
-        Skin5.gameObject.SetActive (false);
-        Skin6.gameObject.SetActive (false);
-        Skin7.gameObject.SetActive (false);
+        WearSkin(1);
     }
 
     public void SwitchSkin()
     {
         switch (WhichSkinIsOn) {
             case 1:
-                WhichSkinIsOn = 2;
                 ActiveSkin = Skin2;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (true);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
+                WearSkin(2);
                 break;
+
             case 2:
-                WhichSkinIsOn = 3;
                 ActiveSkin = Skin3;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (true);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
+                WearSkin(3);
                 break;
+
             case 3:
-                WhichSkinIsOn = 4;
                 ActiveSkin = Skin4;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (true);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
+                WearSkin(4);
                 break;
+
             case 4:
-                WhichSkinIsOn = 5;
                 ActiveSkin = Skin5;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (true);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
+                WearSkin(5);
                 break;
+
             case 5:
-                WhichSkinIsOn = 6;
                 ActiveSkin = Skin6;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (true);
-                Skin7.gameObject.SetActive (false);
+                WearSkin(6);
                 break;
             case 6:
-                WhichSkinIsOn = 7;
                 ActiveSkin = Skin7;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (true);
+                WearSkin(7);
                 break;
         }
         UI.DisplayLevelUp(false);
     }
+
+
     private void FixedUpdate(){
         if (transform.localEulerAngles.z < 180)
             ActiveSkin.GetComponent<SpriteRenderer>().flipX = true;
         else
             ActiveSkin.GetComponent<SpriteRenderer>().flipX = false;
+    }
+
+    private void WearSkin( int skinNo){
+        SkinNumber(skinNo);
+        DeactivateSkins();
+        ActivateSkin();
+    }
+
+    private void DeactivateSkins(){
+        //Deactivate ALL skins
+        Skin1.gameObject.SetActive (false);
+        Skin2.gameObject.SetActive (false);
+        Skin3.gameObject.SetActive (false);
+        Skin4.gameObject.SetActive (false);
+        Skin5.gameObject.SetActive (false);
+        Skin6.gameObject.SetActive (false);
+        Skin7.gameObject.SetActive (false);
+}
+    private void ActivateSkin(){
+        //Activates active skin
+        ActiveSkin.gameObject.SetActive(true);
+    }
+
+    private  void SkinNumber(int skinNo){
+        //Changes skin number
+        WhichSkinIsOn = skinNo;
     }
 
 }
