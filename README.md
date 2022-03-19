@@ -12,5 +12,6 @@ To play the game:
 - PM Elgiz Abbasov @elgizabbasov
 - Ben Schmidt @anidion
 - Madeline Mazurek @madelinemazurek
-- Richard Chow
+- Nicholas Merjano
 - Tamunomiete Brown
+- Richard Chow
