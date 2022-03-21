@@ -50,7 +50,6 @@ public class ChangeSkin : MonoBehaviour
         UI.DisplayLevelUp(false);
     }
 
-
     private void FixedUpdate()
     {
         if (transform.localEulerAngles.z < 180)
