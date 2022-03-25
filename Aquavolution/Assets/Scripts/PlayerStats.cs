@@ -53,8 +53,11 @@ public class PlayerStats : MonoBehaviour
             EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
 
             // Lose health if player hits an enemy larger than them
-            if (FoodCount < EnemyScript.Size)
+            if (FoodCount <= EnemyScript.Size)
             {
+                float KnockbackDuration = 1;
+                float KnockbackPower = 3;
+                StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
                 DecreaseHealth();
             }
             // Eat the enemy and gain their size as food if player is larger than them
@@ -79,10 +82,11 @@ public class PlayerStats : MonoBehaviour
 
     public void DecreaseHealth() {
         
-        UserInterface.UpdateHealthBar(); //update heath bar UI
-
-        Health -= 1; //decrease player health
-
+        if (Health > 0)
+        {
+            UserInterface.UpdateHealthBar(); //update heath bar UI
+            Health -= 1; //decrease player health
+        }
         if (Health <= 0)
         {
             Die();
