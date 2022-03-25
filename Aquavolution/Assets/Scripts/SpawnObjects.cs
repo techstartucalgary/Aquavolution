@@ -58,11 +58,7 @@ public class SpawnObjects : MonoBehaviour
                     case "Room3":
                         SpawnObj = Enemy3;
                         break;
-                    case "Room4":
-                        SpawnObj = Enemy4;
-                        break;
                     default:
-                        SpawnObj = Enemy;
                         break;
                 }
 
@@ -76,7 +72,7 @@ public class SpawnObjects : MonoBehaviour
     {
         foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            if (R == null)
+            if ((R == null) || (R.name == "Room4(Clone)"))
                 continue;
 
             GameObject SpawnedObject = Instantiate(Food, GetLocation(R), Quaternion.identity);
@@ -88,7 +84,7 @@ public class SpawnObjects : MonoBehaviour
     {
         foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            if (R == null)
+            if ((R == null) || (R.name == "Room4(Clone)"))
                 continue;
 
             for (int i = 0; i < MaxCount; i++)

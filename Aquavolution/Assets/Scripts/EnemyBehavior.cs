@@ -53,6 +53,10 @@ public class EnemyBehavior : MonoBehaviour
 
     public void GetEaten()
     {
+        if (gameObject.name == "Enemy_Shark")
+        {
+            gameObject.GetComponent<Victory>().SharkEaten();
+        }
         gameObject.SetActive(false);
     }
 
