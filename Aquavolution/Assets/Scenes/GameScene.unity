@@ -693,6 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 360749849}
   - component: {fileID: 360749848}
+  - component: {fileID: 360749850}
   m_Layer: 0
   m_Name: Skin 3
   m_TagString: Player
@@ -765,6 +766,25 @@ Transform:
   m_Father: {fileID: 5181096027212650073}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &360749850
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360749847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d89631ebd7b23a44be405bf7a8f6523, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &564969629
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636448719}
   - component: {fileID: 636448718}
+  - component: {fileID: 636448720}
   m_Layer: 0
   m_Name: Skin 1
   m_TagString: Player
@@ -934,6 +955,25 @@ Transform:
   m_Father: {fileID: 5181096027212650073}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &636448720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636448717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20db0c0bd3cd44243a86ff27419fa6d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &700240746 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3998320366805373471, guid: a245a62293bef4046b2db6ad7f29da21,
@@ -1447,6 +1487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861409121}
   - component: {fileID: 861409120}
+  - component: {fileID: 861409122}
   m_Layer: 0
   m_Name: Skin 2
   m_TagString: Player
@@ -1519,6 +1560,25 @@ Transform:
   m_Father: {fileID: 5181096027212650073}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &861409122
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861409119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6786e63ffd794cd46b26f5d8c567d356, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &951257071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211316532343324258, guid: 33edc1ac423fc0c43ae5a19a68ea5a28,
