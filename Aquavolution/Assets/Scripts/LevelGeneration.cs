@@ -207,7 +207,7 @@ public class LevelGeneration : MonoBehaviour
     {
         foreach (Room R in Rooms)
         {
-            if (R == null)
+            if ((R == null) || (R.Type == 4))
                 continue;
 
             index = ExtensionMethods.CoordinatesOf<Room>(Rooms, R);
