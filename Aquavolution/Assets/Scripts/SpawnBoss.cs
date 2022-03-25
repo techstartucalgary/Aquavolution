@@ -20,7 +20,7 @@ public class SpawnBoss : MonoBehaviour
         }        
     }
 
-    // Player will call this method when they reach the score threshold
+    // Player calls this method when they reach the score threshold
     public void ThresholdMet()
     {
         IsThresholdMet = true;

@@ -58,7 +58,11 @@ public class SpawnObjects : MonoBehaviour
                     case "Room3":
                         SpawnObj = Enemy3;
                         break;
+                    case "Room4":
+                        SpawnObj = Enemy4;
+                        break;
                     default:
+                        SpawnObj = Enemy;
                         break;
                 }
 
