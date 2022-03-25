@@ -7,7 +7,6 @@ public class SpawnBoss : MonoBehaviour
     public float DistanceThreshold;
     public GameObject Player;
     public GameObject Shark;
-    public GameObject SharkAnim;
     private bool IsThresholdMet = false;
     private bool SharkSpawned = false;
 

@@ -30,25 +30,13 @@ SpriteAtlas:
       enableTightPacking: 1
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: 6753585951707084542, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-    - {fileID: -7741036914109243316, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-    - {fileID: -3716302991851388969, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-    - {fileID: 6572671757275323478, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
+    packables: []
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: -7741036914109243316, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-  - {fileID: 6753585951707084542, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-  - {fileID: 6572671757275323478, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-  - {fileID: -3716302991851388969, guid: f0eccdbf31d022043a212ef6ccbf6013, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - Shark Intro_1
-  - Shark Intro_0
-  - Shark Intro_3
-  - Shark Intro_2
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: New Sprite Atlas
   m_IsVariant: 0
