@@ -29,11 +29,11 @@ public class PlayerStats : MonoBehaviour
         FoodCount = 0;
         Health = 5;
         Player = gameObject;
-        yield return new WaitForSeconds(3);
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        SpawnBoss = GameObject.Find("Room4(Clone)").GetComponent<SpawnBoss>();
         UI = Canvas.GetComponent<UserInterface>();
         Player.transform.localScale = new Vector3(1, 1, 1);
+        yield return new WaitForSeconds(3);
+        SpawnBoss = GameObject.Find("Room4(Clone)").GetComponent<SpawnBoss>();
     }
 
     void OnTriggerEnter2D(Collider2D Col)
