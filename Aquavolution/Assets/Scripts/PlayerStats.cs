@@ -8,24 +8,31 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] 
     private Text ScoreCount;
     public static int FoodCount;
+    public int BossThreshold;
     public static int Health;
     private static float SizeChange = 0.05F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
     GameController GameController;
+    private SpawnBoss SpawnBoss;
     public GameObject Canvas;
     private UserInterface UI;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Set up initial values when the scene starts
-        FoodCount = 0;
+        // Had to put a delay so we can find game objects 
+        StartCoroutine("SetupPlayer");
+    }
+
+    IEnumerator SetupPlayer()
+    {
+        yield return new WaitForSeconds(3);
+        FoodCount = 39;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        SpawnBoss = GameObject.Find("Room4(Clone)").GetComponent<SpawnBoss>();
         UI = Canvas.GetComponent<UserInterface>();
-        //set initial transform scale for player
         Player.transform.localScale = new Vector3(1, 1, 1);
     }
 
@@ -37,7 +44,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    //Method is called whenever a collision is detected
+    //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
         if (Col.gameObject.tag == "Enemy")
@@ -46,14 +53,10 @@ public class PlayerStats : MonoBehaviour
             EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
 
             // Lose health if player hits an enemy larger than them
-            if (FoodCount <= EnemyScript.Size)
+            if (FoodCount < EnemyScript.Size)
             {
-                float KnockbackDuration = 1;
-                float KnockbackPower = 5;
-                StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
                 DecreaseHealth();
             }
-
             // Eat the enemy and gain their size as food if player is larger than them
             if (FoodCount > EnemyScript.Size)
             {
@@ -93,6 +96,9 @@ public class PlayerStats : MonoBehaviour
 
         if (FoodCount % 10 == 0)
             UI.DisplayLevelUp(true);
+
+        if (FoodCount == BossThreshold)
+            SpawnBoss.ThresholdMet();
     }
 
     void DisplayScoreToScreen(int FoodCount){
