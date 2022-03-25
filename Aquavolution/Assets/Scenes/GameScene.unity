@@ -44459,7 +44459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCount: {fileID: 1857817264}
-  BossThreshold: 0
+  BossThreshold: 41
   Canvas: {fileID: 2021550200}
 --- !u!1 &1230023713
 GameObject:

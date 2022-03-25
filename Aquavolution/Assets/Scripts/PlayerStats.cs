@@ -26,10 +26,10 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator SetupPlayer()
     {
-        yield return new WaitForSeconds(3);
-        FoodCount = 39;
+        FoodCount = 0;
         Health = 5;
         Player = gameObject;
+        yield return new WaitForSeconds(3);
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         SpawnBoss = GameObject.Find("Room4(Clone)").GetComponent<SpawnBoss>();
         UI = Canvas.GetComponent<UserInterface>();
