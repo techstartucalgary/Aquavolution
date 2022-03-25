@@ -55,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (gameObject.name == "Enemy_Shark")
         {
-            gameObject.GetComponent<Victory>().SharkEaten();
+            gameObject.transform.GetComponentInParent<Victory>().SharkEaten();
         }
         gameObject.SetActive(false);
     }
