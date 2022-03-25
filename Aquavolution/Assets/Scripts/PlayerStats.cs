@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         //Set up initial values when the scene starts
-        FoodCount = 0;
+        FoodCount = 9;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    //Method is called whenever a collision is detected
+    //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
         if (Col.gameObject.tag == "Enemy")
@@ -46,14 +46,10 @@ public class PlayerStats : MonoBehaviour
             EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
 
             // Lose health if player hits an enemy larger than them
-            if (FoodCount <= EnemyScript.Size)
+            if (FoodCount < EnemyScript.Size)
             {
-                float KnockbackDuration = 1;
-                float KnockbackPower = 5;
-                StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
                 DecreaseHealth();
             }
-
             // Eat the enemy and gain their size as food if player is larger than them
             if (FoodCount > EnemyScript.Size)
             {

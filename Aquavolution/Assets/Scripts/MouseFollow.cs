@@ -4,8 +4,6 @@ using System;
 
 public class MouseFollow : MonoBehaviour
 {
-    public static MouseFollow instance;
-
     Vector2 MousePosition;
     public float StartingMoveSpeed;
     public float SurfaceHeight;
@@ -16,11 +14,6 @@ public class MouseFollow : MonoBehaviour
     [SerializeField]
     private float SlowdownFactor;
     private Rigidbody2D Rb;
-
-    private void Awake() 
-    {
-        instance = this;   
-    }
 
     private void Start()
     {
@@ -87,19 +80,5 @@ public class MouseFollow : MonoBehaviour
             XRatio = 1;
 
         return new Vector2(XRatio, YRatio);
-    }
-
-    public IEnumerator Knockback(float KnockbackDuration, float KnockbackPower, Transform obj)
-    {
-        float Timer = 0;
-
-        while (KnockbackDuration > Timer)
-        {
-            Timer += Time.deltaTime;
-            Vector2 Direction = (obj.transform.position - this.transform.position).normalized;
-            Rb.AddForce(-Direction * KnockbackPower);
-        }
-
-        yield return 0;
     }
 }
