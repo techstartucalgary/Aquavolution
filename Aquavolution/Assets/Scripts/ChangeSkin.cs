@@ -16,7 +16,63 @@ public class ChangeSkin : MonoBehaviour
     {
         UI = Canvas.GetComponent<UserInterface>();
         ActiveSkin = Skin1;
-        Skin1.gameObject.SetActive (true);
+        UpdateSkin(1);
+    }
+
+    public void SwitchSkin()
+    {
+        switch (WhichSkinIsOn) {
+            case 1:
+                ActiveSkin = Skin2;
+                UpdateSkin(2);
+                break;
+            case 2:
+                ActiveSkin = Skin3;
+                UpdateSkin(3);
+                break;
+            case 3:
+                ActiveSkin = Skin4;
+                UpdateSkin(4);
+                break;
+            case 4:
+                ActiveSkin = Skin5;
+                UpdateSkin(5);
+                break;
+            case 5:
+                ActiveSkin = Skin6;
+                UpdateSkin(6);
+                break;
+            case 6:
+                ActiveSkin = Skin7;
+                UpdateSkin(7);
+                break;
+        }
+        UI.DisplayLevelUp(false);
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.localEulerAngles.z < 180)
+            ActiveSkin.GetComponent<SpriteRenderer>().flipX = true;
+        else
+            ActiveSkin.GetComponent<SpriteRenderer>().flipX = false;
+    }
+
+    private void UpdateSkin(int SkinNum)
+    {
+        UpdateSkinNumber(SkinNum);
+        DeactivateSkins();
+        ActivateSkin();
+    }
+
+    private void UpdateSkinNumber(int SkinNum)
+    {
+        WhichSkinIsOn = SkinNum;
+    }
+
+    private void DeactivateSkins()
+    {
+        Skin1.gameObject.SetActive (false);
         Skin2.gameObject.SetActive (false);
         Skin3.gameObject.SetActive (false);
         Skin4.gameObject.SetActive (false);
@@ -25,83 +81,8 @@ public class ChangeSkin : MonoBehaviour
         Skin7.gameObject.SetActive (false);
     }
 
-    public void SwitchSkin()
+    private void ActivateSkin()
     {
-        switch (WhichSkinIsOn) {
-            case 1:
-                WhichSkinIsOn = 2;
-                ActiveSkin = Skin2;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (true);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
-                break;
-            case 2:
-                WhichSkinIsOn = 3;
-                ActiveSkin = Skin3;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (true);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
-                break;
-            case 3:
-                WhichSkinIsOn = 4;
-                ActiveSkin = Skin4;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (true);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
-                break;
-            case 4:
-                WhichSkinIsOn = 5;
-                ActiveSkin = Skin5;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (true);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (false);
-                break;
-            case 5:
-                WhichSkinIsOn = 6;
-                ActiveSkin = Skin6;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (true);
-                Skin7.gameObject.SetActive (false);
-                break;
-            case 6:
-                WhichSkinIsOn = 7;
-                ActiveSkin = Skin7;
-                Skin1.gameObject.SetActive (false);
-                Skin2.gameObject.SetActive (false);
-                Skin3.gameObject.SetActive (false);
-                Skin4.gameObject.SetActive (false);
-                Skin5.gameObject.SetActive (false);
-                Skin6.gameObject.SetActive (false);
-                Skin7.gameObject.SetActive (true);
-                break;
-        }
-        UI.DisplayLevelUp(false);
+        ActiveSkin.gameObject.SetActive (true);
     }
-    private void FixedUpdate(){
-        if (transform.localEulerAngles.z < 180)
-            ActiveSkin.GetComponent<SpriteRenderer>().flipX = true;
-        else
-            ActiveSkin.GetComponent<SpriteRenderer>().flipX = false;
-    }
-
 }

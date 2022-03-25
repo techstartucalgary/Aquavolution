@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LevelGeneration : MonoBehaviour
 {
-    Vector2 WorldSize = new Vector2(4,4);
+    Vector2 WorldSize = new Vector2(100, 100);
     Room[,] Rooms;
     public GameObject[,] InstantiatedRooms;
     List<Vector2> TakenPositions = new List<Vector2>();
     int GridSizeX, GridSizeY;
     public int NumRooms;
-    public GameObject MapSprite;
-    public float MapRoomGap;
+    //public GameObject MapSprite;
+    //public float MapRoomGap;
     public float RoomGapX;
     public float RoomGapY;
     private Vector2 index;
+    public int BossDepth;
 
     void Start()
     {
-        // Makes sure we don't have too many rooms in our world
+        if (NumRooms < Math.Abs(BossDepth))
+            Debug.LogWarning("There are less rooms than the specified boss depth, no boss room will spawn.");
+
         if (NumRooms >= ((WorldSize.x * 2) * (WorldSize.y * 2)) )
             NumRooms = Mathf.RoundToInt((WorldSize.x * 2) * WorldSize.y * 2);
         GridSizeX = Mathf.RoundToInt(WorldSize.x);
@@ -46,24 +50,32 @@ public class LevelGeneration : MonoBehaviour
         for (int i = 0; i < NumRooms-1; i++)
         {
             float RandomPerc = ((float) i / ((float) NumRooms-1));
-            RandomCompare = Mathf.Lerp(RandomCompareStart, RandomCompareEnd, RandomPerc);
-            CheckPos = FindNewValidRoomPos();
-        
-            // If a room has > 1 neighbors, there is a chance for it to get another neighbor
-            if (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Random.value > RandomCompare)
+
+            if (!ApproachingRoomLimit() || GetDeepestRoom().y == BossDepth)
             {
-                int Iterations = 0;
-                do
+                RandomCompare = Mathf.Lerp(RandomCompareStart, RandomCompareEnd, RandomPerc);
+                CheckPos = FindNewValidRoomPos();
+
+                // If a room already has multiple neighbors, it's less likely to gain another one
+                if (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && UnityEngine.Random.value > RandomCompare)
                 {
-                    CheckPos = FindNewValidRoomPos();
-                    Iterations++;
+                    int Iterations = 0;
+
+                    while (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Iterations < 50)
+                    {
+                        CheckPos = FindNewValidRoomPos();
+                        Iterations++;
+                    }
+
+                    //if (Iterations >= 50)
+                        //Debug.LogError("Error: Could not create with fewer neighbors than: " + NumberOfNeighbors(CheckPos, TakenPositions));            
                 }
-                while (NumberOfNeighbors(CheckPos, TakenPositions) > 1 && Iterations < 50);
-
-                if (Iterations >= 50)
-                    Debug.LogError("Error: Could not create with fewer neighbors than: " + NumberOfNeighbors(CheckPos, TakenPositions));            
             }
-
+            else
+            {
+                CheckPos = new Vector2(GetDeepestRoom().x, GetDeepestRoom().y - 1);
+            }
+ 
             // Add created room to arrays
             Rooms[(int)CheckPos.x + GridSizeX, (int)CheckPos.y + GridSizeY] = new Room(CheckPos, 0);
             TakenPositions.Insert(0, CheckPos);
@@ -74,30 +86,36 @@ public class LevelGeneration : MonoBehaviour
     {
         int x = 0, y = 0;
         Vector2 CheckingPos = Vector2.zero;
-        do
+        
+        while (TakenPositions.Contains(CheckingPos) || x >= GridSizeX || x < -GridSizeX || y >= GridSizeY || y < -GridSizeY)
         {
-            int Index = Mathf.RoundToInt(Random.value * (TakenPositions.Count - 1));
-            x = (int) TakenPositions[Index].x;
-            y = (int) TakenPositions[Index].y;
-            bool Down = (Random.value < 0.5f);
-            bool Right = (Random.value < 0.5f);
+            do
+            {
+                int Index = Mathf.RoundToInt(UnityEngine.Random.value * (TakenPositions.Count - 1));
+                
+                x = (int) TakenPositions[Index].x;
+                y = (int) TakenPositions[Index].y;                    
+            }
+            while ((y == BossDepth) && (GetDeepestRoom().y == BossDepth));
+
+            bool Down, Right;
+
+            Down = (UnityEngine.Random.value < 0.9f);
+            Right = (UnityEngine.Random.value < 0.5f);
+            
             if (Down)
                 y -= 1;
+            else if (Right)
+                x += 1;
             else
-            {
-                if (Right)
-                    x += 1;
-                else
-                    x -= 1;
-            }
+                x -= 1;
+
             CheckingPos = new Vector2(x,y);
-        } 
-        while (TakenPositions.Contains(CheckingPos) || x >= GridSizeX || x < -GridSizeX || y >= GridSizeY || y < -GridSizeY);
+        }
 
         return CheckingPos;
     }
 
-    // Counts how many neighbors a given position has
     int NumberOfNeighbors (Vector2 CheckingPos, List<Vector2> UsedPositions)
     {
         int NumNeighbors = 0;
@@ -156,7 +174,6 @@ public class LevelGeneration : MonoBehaviour
         {
             if (R == null)
                 continue;
-
             
             // Instantiates the Sprites. This does nothing right now, but can be used to make a minimap
             /*
@@ -177,8 +194,8 @@ public class LevelGeneration : MonoBehaviour
             Vector2 DrawPos = R.GridPos;
             DrawPos.x *= RoomGapX/100;
             DrawPos.y *= RoomGapY/100;
-            R.Type = (int)Mathf.Abs(R.GridPos.y);
 
+            R.Type = Mathf.Abs((int) R.GridPos.y / 10);
             GameObject RoomPrefab = Instantiate(GameObject.Find("Room" + R.Type.ToString()), DrawPos, Quaternion.identity);
 
             index = ExtensionMethods.CoordinatesOf<Room>(Rooms, R);
@@ -186,7 +203,6 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-    // Creates holes in rooms to allow movement through them
     void CreateTunnels()
     {
         foreach (Room R in Rooms)
@@ -207,5 +223,28 @@ public class LevelGeneration : MonoBehaviour
             if (R.DoorRight)
                 Destroy(CurrentRoom.transform.GetChild(1).Find("RightDoorGrid").gameObject);
         }
+    }
+
+    private Vector2 GetDeepestRoom()
+    {
+        Vector2 MaxDepth = Vector2.zero;
+        foreach (Vector2 Pos in TakenPositions)
+        {
+            if (Pos.y < MaxDepth.y)
+                MaxDepth = Pos;
+        }
+        return MaxDepth;
+    }
+
+    private bool ApproachingRoomLimit()
+    {
+        int DeepestRoomDepth = (int) GetDeepestRoom().y;
+        
+        if (NumRooms - TakenPositions.Count <= Math.Abs(BossDepth) - Math.Abs(DeepestRoomDepth))
+            return true;
+        else if (DeepestRoomDepth >= BossDepth)
+            return false;
+        else
+            return false;
     }
 }

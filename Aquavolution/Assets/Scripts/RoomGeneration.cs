@@ -136,7 +136,7 @@ public class RoomGeneration : MonoBehaviour
     }
 
     // Deletes center of rect passed
-     void ClearRectCenter(Rect _Rect, Tilemap _TMap)
+    void ClearRectCenter(Rect _Rect, Tilemap _TMap)
     {
         for (int x = _Rect.XOffset; x < (_Rect.Width + _Rect.XOffset); x++)
         {
