@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
     private SpawnBoss SpawnBoss;
     public GameObject Canvas;
     private UserInterface UI;
+    public float KnockbackDuration = 1;
+    public float KnockbackPower = 4;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator SetupPlayer()
     {
-        FoodCount = 0;
+        FoodCount = 9;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -55,8 +57,6 @@ public class PlayerStats : MonoBehaviour
             // Lose health if player hits an enemy larger than them
             if (FoodCount <= EnemyScript.Size)
             {
-                float KnockbackDuration = 1;
-                float KnockbackPower = 3;
                 StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
                 DecreaseHealth();
             }

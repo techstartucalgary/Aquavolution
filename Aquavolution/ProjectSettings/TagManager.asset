@@ -9,6 +9,7 @@ TagManager:
   - Heart
   - UI
   - Waste
+  - PlayCanvas
   layers:
   - Default
   - TransparentFX
