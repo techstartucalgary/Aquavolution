@@ -6,7 +6,19 @@ using UnityEngine.UI;
 public class UserInterface : MonoBehaviour
 {
     public GameObject LevelUpButton;
-    
+    public GameObject GoalText;
+
+    void Start()
+    {
+        StartCoroutine("HideGoal");
+    }
+
+    IEnumerator HideGoal()
+    {
+        yield return new WaitForSeconds(5);
+        GoalText.SetActive(false);
+    }
+
     public static void UpdateHealthBar() 
     {
         string HeartName = "Heart (" + PlayerStats.Health + ")";
@@ -18,4 +30,5 @@ public class UserInterface : MonoBehaviour
     {
         LevelUpButton.SetActive(state);
     }
+    
 }
