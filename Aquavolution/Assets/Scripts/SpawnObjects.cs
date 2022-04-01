@@ -84,7 +84,7 @@ public class SpawnObjects : MonoBehaviour
     {
         foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            if ((R == null) || (R.name == "Room4(Clone)"))
+            if ((R == null) || (R.name == "Room4(Clone)") || (R.transform.position.x == 0 && R.transform.position.y == 0))
                 continue;
 
             for (int i = 0; i < MaxCount; i++)
