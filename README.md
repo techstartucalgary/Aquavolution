@@ -7,7 +7,7 @@ Aquavolution is a browser-based survival/adventure 2D game made with Unity.
 ## Challenges we ran into 
 ## Accomplishments we are proud of
 ## What we learned
-## What’s next for Aquavolution**
+## What’s next for Aquavolution
 
 To play the game:
 
