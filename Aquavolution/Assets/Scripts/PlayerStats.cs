@@ -28,7 +28,6 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator SetupPlayer()
     {
-        FoodCount = 0;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
