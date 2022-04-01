@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
+    public Text ScoreText;
     public GameObject PauseMenuScreen;
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuScreen.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        ScoreText.text = "Score: " + PlayerStats.FoodCount.ToString();
     }
 
     public void Exit()
