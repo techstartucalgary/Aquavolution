@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChangeSkin : MonoBehaviour
 {
@@ -19,8 +20,21 @@ public class ChangeSkin : MonoBehaviour
         UpdateSkin(1);
     }
 
+    public void RegenHealthBar()
+    {
+        GameObject[] AllHearts = GameObject.FindGameObjectsWithTag("Heart");
+        
+        foreach (GameObject Heart in AllHearts)
+        {
+            Heart.GetComponent<Image>().enabled = true;
+        }
+        
+        PlayerStats.Health = 5;
+    }
+
     public void SwitchSkin()
     {
+        RegenHealthBar();
         switch (WhichSkinIsOn) {
             case 1:
                 ActiveSkin = Skin2;

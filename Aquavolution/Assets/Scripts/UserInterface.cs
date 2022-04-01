@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class UserInterface : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class UserInterface : MonoBehaviour
     {
         string HeartName = "Heart (" + PlayerStats.Health + ")";
         GameObject TargetHeart = GameObject.Find(HeartName);
-        TargetHeart.SetActive(false);
+        TargetHeart.GetComponent<Image>().enabled = false;
     }
 
     public void DisplayLevelUp(bool state)
