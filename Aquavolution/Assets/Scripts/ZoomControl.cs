@@ -7,25 +7,33 @@ public class ZoomControl : MonoBehaviour
 {
     public float ZoomSize = 5;
     private int PlayerSize;
+    public GameObject Player;
+    private PlayerStats Stats;
     private int MaximumZoomSize = 8;
 
+    void Start()
+    {
+        Stats = Player.GetComponent<PlayerStats>();
+    }
     void Update()
     {
-        PlayerSize = PlayerStats.FoodCount + 1;
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Player.activeSelf)
         {
-            if (ZoomSize > 5)
-                ZoomSize -= 0.1f;
-        }
+            PlayerSize = Stats.FoodCount + 1;
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            if (ZoomSize < PlayerSize && ZoomSize < MaximumZoomSize)
-                ZoomSize += 0.1f;
-        }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                if (ZoomSize > 5)
+                    ZoomSize -= 0.1f;
+            }
 
-        GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = ZoomSize;
-        
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                if (ZoomSize < PlayerSize && ZoomSize < MaximumZoomSize)
+                    ZoomSize += 0.1f;
+            }
+
+            GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = ZoomSize;
+        }
     }
 }

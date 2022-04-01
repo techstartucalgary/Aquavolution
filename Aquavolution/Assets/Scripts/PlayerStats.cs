@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] 
     private Text ScoreCount;
-    public static int FoodCount;
+    public int FoodCount;
     public int BossThreshold;
     public static int Health;
     private static float SizeChange = 0.05F;
@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator SetupPlayer()
     {
-        FoodCount = 9;
+        FoodCount = 39;
         Health = 5;
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
