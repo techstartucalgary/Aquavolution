@@ -9,8 +9,13 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public Text ScoreText;
     public GameObject PauseMenuScreen;
+    public GameObject Player;
+    public PlayerStats Stats;
 
-    // Update is called once per frame
+    void Start()
+    {
+        Stats = Player.GetComponent<PlayerStats>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -36,7 +41,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuScreen.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        ScoreText.text = "Score: " + PlayerStats.FoodCount.ToString();
+        ScoreText.text = "Score: " + Stats.FoodCount.ToString();
     }
 
     public void Exit()
