@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     {
         Stats = Player.GetComponent<PlayerStats>();
     }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
