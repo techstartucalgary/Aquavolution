@@ -1,7 +1,10 @@
 # Aquavolution
 Aquavolution is a browser-based survival/adventure 2D game made with Unity.
 
-## Inspiration 
+## Inspiration
+PROTECTING THE OCEANS:
+They are not in the maps, but Earth now has 5 plastic islands. Ocean currents cause “gyres” and the plastic accumulates there. One of these islands is the size of United Sates!
+
 ## What it does 
 ## How we built it
 ## Challenges we ran into 
