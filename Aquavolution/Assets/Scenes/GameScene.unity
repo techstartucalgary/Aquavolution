@@ -47350,7 +47350,7 @@ MonoBehaviour:
   Enemy4: {fileID: 1075142766725189116, guid: 9eaf891a67fbb484b831c29cfc218c33, type: 3}
   Cam: {fileID: 1689046969}
   MaxEnemy: 4
-  SpawnRate: 2
+  SpawnRate: 4
 --- !u!4 &1557208254
 Transform:
   m_ObjectHideFlags: 0
