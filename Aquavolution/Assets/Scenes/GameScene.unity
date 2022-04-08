@@ -47675,6 +47675,7 @@ GameObject:
   - component: {fileID: 1557208252}
   - component: {fileID: 1557208251}
   - component: {fileID: 1557208255}
+  - component: {fileID: 1557208256}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -47770,6 +47771,19 @@ MonoBehaviour:
   DoorYEnd: 15
   DoorXStart: 19
   DoorXEnd: 29
+--- !u!114 &1557208256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557208250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4325e7f24c896b647b22a42058fba753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bubble: {fileID: 7552088117239643790, guid: ceb8776d9bc96b047b0d689f026734a0, type: 3}
 --- !u!1 &1570202398
 GameObject:
   m_ObjectHideFlags: 0
@@ -60618,7 +60632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &5181096027212650085
 Rigidbody2D:
   serializedVersion: 4
