@@ -46,7 +46,10 @@ public class EnemyBehavior : MonoBehaviour
         {
             gameObject.transform.GetComponentInParent<Victory>().SharkEaten();
         }
-        gameObject.SetActive(false);
+        Animator AnimController = gameObject.GetComponent<Animator>();
+        AnimController.SetTrigger("Eaten");
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, .5f);
     }
 
     void OnCollisionEnter2D(Collision2D Col)
