@@ -28,7 +28,7 @@ public class Depth : MonoBehaviour {
 
             // to 2 decimal places "F2"
             if (Distance > 0.6f)
-                DepthYText.text = "Distance from boss: " + Distance.ToString("F2") + " meters";
+                DepthYText.text = "You are " + Distance.ToString("F2") + " meters away from the boss!";
             else
                 DepthYText.text = "";
             
