@@ -15,6 +15,7 @@ public class ZoomControl : MonoBehaviour
     {
         Stats = Player.GetComponent<PlayerStats>();
     }
+
     void Update()
     {
         if (Player.activeSelf)
@@ -29,7 +30,7 @@ public class ZoomControl : MonoBehaviour
 
             if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                if (ZoomSize < PlayerSize && ZoomSize < MaximumZoomSize)
+                if (ZoomSize < MaximumZoomSize)
                     ZoomSize += 0.1f;
             }
 
