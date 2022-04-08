@@ -45231,8 +45231,8 @@ MonoBehaviour:
   FoodCount: 0
   BossThreshold: 41
   Canvas: {fileID: 2021550200}
-  KnockbackDuration: 1
-  KnockbackPower: 5
+  KnockbackDuration: 0.5
+  KnockbackPower: 7
 --- !u!1 &1230023713
 GameObject:
   m_ObjectHideFlags: 0
@@ -60540,11 +60540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dceaf6301194fe4ab1445d1f9eae89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingMoveSpeed: 7.5
-  SurfaceHeight: 35
-  Gravity: 2.5
-  MinSpeed: 0.1
-  SlowdownFactor: 0.1
+  Speed: 10
 --- !u!60 &5181096027212650088
 PolygonCollider2D:
   m_ObjectHideFlags: 0
