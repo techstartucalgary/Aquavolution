@@ -39,8 +39,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (Col.tag == "Food") 
         {
-            IncreaseFood(1); 
-            Debug.Log("++");
+            IncreaseFood(1);
         }
     }
 
