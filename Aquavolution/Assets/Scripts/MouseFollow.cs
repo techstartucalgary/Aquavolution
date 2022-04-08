@@ -41,7 +41,6 @@ public class MouseFollow : MonoBehaviour
             Vector2 Direction = ((Vector2)transform.position - OldMousePos).normalized;
             Rb.AddForce(Direction * 1);
         }
-        Debug.Log(Vector2.SqrMagnitude(Rb.velocity));
         transform.up = MousePosition - (Vector2)transform.position;
     }
 
