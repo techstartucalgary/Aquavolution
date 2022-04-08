@@ -60541,6 +60541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  MaxVelocity: 200
 --- !u!60 &5181096027212650088
 PolygonCollider2D:
   m_ObjectHideFlags: 0

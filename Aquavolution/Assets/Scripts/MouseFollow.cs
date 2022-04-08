@@ -6,7 +6,9 @@ public class MouseFollow : MonoBehaviour
 {
     public static MouseFollow instance;
     Vector2 MousePosition;
+    private Vector2 OldMousePos;
     public float Speed;
+    public float MaxVelocity;
     private Rigidbody2D Rb;
 
     private void Awake() 
@@ -27,9 +29,19 @@ public class MouseFollow : MonoBehaviour
 
     private void MoveCharacter()
     {
-        Rb.gravityScale = 0;
-        Rb.AddForce((MousePosition - (Vector2)transform.position).normalized * GetMoveSpeed());
+        if (Vector2.SqrMagnitude(Rb.velocity) < MaxVelocity)
+        {
+            Vector2 Direction = (MousePosition - (Vector2)transform.position).normalized;            
+            Rb.AddForce(Direction * GetMoveSpeed());
 
+            OldMousePos = MousePosition;
+        }
+        else
+        {
+            Vector2 Direction = ((Vector2)transform.position - OldMousePos).normalized;
+            Rb.AddForce(Direction * 1);
+        }
+        Debug.Log(Vector2.SqrMagnitude(Rb.velocity));
         transform.up = MousePosition - (Vector2)transform.position;
     }
 
