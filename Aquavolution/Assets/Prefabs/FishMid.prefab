@@ -204,6 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 1
-  Size: 0
+  Size: 1
   SightStart: {fileID: 5976449468432439484}
   SightEnd: {fileID: 5972295076731508343}
