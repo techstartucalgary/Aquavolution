@@ -47320,10 +47320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2222150f8f6e816468a2052dad6eafdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumRooms: 100
+  NumRooms: 50
   RoomGapX: 4400
   RoomGapY: 2100
-  BossDepth: -40
+  BossDepth: -20
 --- !u!114 &1557208253
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -195,7 +195,7 @@ public class LevelGeneration : MonoBehaviour
             DrawPos.x *= RoomGapX/100;
             DrawPos.y *= RoomGapY/100;
 
-            R.Type = Mathf.Abs((int) R.GridPos.y / 10);
+            R.Type = Mathf.Abs((int) R.GridPos.y / 5);
             GameObject RoomPrefab = Instantiate(GameObject.Find("Room" + R.Type.ToString()), DrawPos, Quaternion.identity);
 
             index = ExtensionMethods.CoordinatesOf<Room>(Rooms, R);
