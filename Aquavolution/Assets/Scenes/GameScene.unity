@@ -13935,7 +13935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZoomSize: 5
-  Player: {fileID: 5181096027212650084}
 --- !u!1 &571619601
 GameObject:
   m_ObjectHideFlags: 0
@@ -47910,14 +47909,13 @@ MonoBehaviour:
   PlasticStraw: {fileID: 214647977296552015, guid: f0e3b2cb2e161954396a95c628df97c9,
     type: 3}
   MaxPlastic: 3
-  Enemy: {fileID: 7481219871073885888, guid: 33d243ba9822dec41836cc5b42e800db, type: 3}
+  MaxFood: 500
+  FoodCount: 0
   Enemy0: {fileID: 6180839345621439297, guid: 3a589789f407021459b52ffdd7882ee6, type: 3}
   Enemy1: {fileID: 2672674742193528644, guid: ae91299289eaf374d986faf89e661be1, type: 3}
   Enemy2: {fileID: 7481219871073885888, guid: 33d243ba9822dec41836cc5b42e800db, type: 3}
   Enemy3: {fileID: 5973823181312447272, guid: 7e5ef38f6a42b1047b6b1a8bc1ebfe8b, type: 3}
-  Enemy4: {fileID: 1075142766725189116, guid: 9eaf891a67fbb484b831c29cfc218c33, type: 3}
   Cam: {fileID: 1689046969}
-  MaxEnemy: 4
   SpawnRate: 4
 --- !u!4 &1557208254
 Transform:

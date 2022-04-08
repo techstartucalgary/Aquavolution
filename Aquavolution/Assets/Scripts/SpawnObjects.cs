@@ -7,17 +7,13 @@ public class SpawnObjects : MonoBehaviour
     public GameObject PlasticBottle;
     public GameObject PlasticStraw;
     public int MaxPlastic = 3;
-
-    public GameObject Enemy;
-
+    public int MaxFood;
+    public int FoodCount = 0;
     public GameObject Enemy0;
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
-    public GameObject Enemy4;
-
     public Camera Cam;
-    public int MaxEnemy = 5;
     public float SpawnRate;
 
     private LevelGeneration LevelGenerator;
@@ -76,11 +72,13 @@ public class SpawnObjects : MonoBehaviour
     {
         foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            if ((R == null) || (R.name == "Room4(Clone)"))
+            if ((R == null) || (R.name == "Room4(Clone)") || !(FoodCount < MaxFood))
                 continue;
 
-            GameObject SpawnedObject = Instantiate(Food, GetLocation(R), Quaternion.identity);
+            GameObject SpawnedObject = Instantiate(Food, GetLocation(R), Quaternion.identity);            
             SpawnedObject.SetActive(true);
+
+            FoodCount++;
         }
     }
 
