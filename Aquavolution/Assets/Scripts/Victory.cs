@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Victory : MonoBehaviour
 {
-
     public GameObject VictoryPopUp;
 
     public void SharkEaten()
