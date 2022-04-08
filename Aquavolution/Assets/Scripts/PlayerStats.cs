@@ -20,10 +20,17 @@ public class PlayerStats : MonoBehaviour
     public float KnockbackDuration = 1;
     public float KnockbackPower = 4;
 
+    public static int PlayerLevel = 1;
+
+    static Animator animator;
+
+    private static string CurrentSkin;
+
     void Start()
     {
         // Had to put a delay so we can find game objects 
         StartCoroutine("SetupPlayer");
+        UpdateAnimator();
     }
 
     IEnumerator SetupPlayer()
@@ -41,7 +48,8 @@ public class PlayerStats : MonoBehaviour
     {
         if (Col.tag == "Food") 
         {
-            IncreaseFood(1);        
+            IncreaseFood(1); 
+            animator.SetTrigger("eating");
         }
     }
 
@@ -64,6 +72,7 @@ public class PlayerStats : MonoBehaviour
             {
                 EnemyScript.GetEaten();
                 IncreaseFood(EnemyScript.Size);
+                animator.SetTrigger("eating");
             }
         }
 
@@ -75,7 +84,7 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
+        animator.SetTrigger("dead");
         GameController.GameOver(FoodCount);
     }
 
@@ -107,5 +116,15 @@ public class PlayerStats : MonoBehaviour
     void DisplayScoreToScreen(int FoodCount){
         ScoreCount.text = "Score: " + FoodCount; //display score to screen
         Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
+    }
+
+    public static void IncreaseLevel() {
+        PlayerLevel += 1;
+        UpdateAnimator();
+    }
+
+    static void UpdateAnimator() {
+        CurrentSkin = "Skin " + PlayerLevel;
+        animator = GameObject.Find(CurrentSkin).GetComponent<Animator>();    
     }
 }

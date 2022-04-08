@@ -39,26 +39,32 @@ public class ChangeSkin : MonoBehaviour
             case 1:
                 ActiveSkin = Skin2;
                 UpdateSkin(2);
+                PlayerStats.IncreaseLevel();
                 break;
             case 2:
                 ActiveSkin = Skin3;
                 UpdateSkin(3);
+                PlayerStats.IncreaseLevel();
                 break;
             case 3:
                 ActiveSkin = Skin4;
                 UpdateSkin(4);
+                PlayerStats.IncreaseLevel();
                 break;
             case 4:
                 ActiveSkin = Skin5;
                 UpdateSkin(5);
+                PlayerStats.IncreaseLevel();
                 break;
             case 5:
                 ActiveSkin = Skin6;
                 UpdateSkin(6);
+                PlayerStats.IncreaseLevel();
                 break;
             case 6:
                 ActiveSkin = Skin7;
                 UpdateSkin(7);
+                PlayerStats.IncreaseLevel();
                 break;
         }
         UI.DisplayLevelUp(false);

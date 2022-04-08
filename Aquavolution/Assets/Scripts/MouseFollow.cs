@@ -34,7 +34,9 @@ public class MouseFollow : MonoBehaviour
     }
 
     private void MoveCharacter()
-    {
+    {   
+        if(PlayerStats.Health == 0) { return; }
+
         if (transform.position.y >= SurfaceHeight)
             Rb.gravityScale = Gravity;
         else
