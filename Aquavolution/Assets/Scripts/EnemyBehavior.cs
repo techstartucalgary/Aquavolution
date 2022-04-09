@@ -7,6 +7,7 @@ public class EnemyBehavior : MonoBehaviour
     private Rigidbody2D RB;
     public float MoveSpeed;
     public int Size;
+    private int MaxSize = 15;
     private static float SizeChange = 0.05F;
     private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     
@@ -46,6 +47,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             gameObject.transform.GetComponentInParent<Victory>().SharkEaten();
         }
+        
         Animator AnimController = gameObject.GetComponent<Animator>();
         AnimController.SetTrigger("Eaten");
         gameObject.GetComponent<Collider2D>().enabled = false;
@@ -54,10 +56,6 @@ public class EnemyBehavior : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D Col)
     {
-        if (Col.gameObject.tag == "Food") 
-        {
-            IncreaseFood(1);            
-        }
         if (Col.gameObject.tag == "Enemy")
         {
             FlipEnemy();
@@ -68,8 +66,18 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D Col)
+    {
+        if (Col.tag == "Food")
+        {
+            IncreaseFood(1);
+        }
+    }
+
     void IncreaseFood(int IncreaseVal)
     {
-        gameObject.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
+        Size += IncreaseVal;
+        if (gameObject.transform.localScale.x < MaxSize && gameObject.transform.localScale.y < MaxSize && gameObject.transform.localScale.z < MaxSize)
+            gameObject.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
     }
 }
