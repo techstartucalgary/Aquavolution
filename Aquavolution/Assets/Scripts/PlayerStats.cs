@@ -10,8 +10,6 @@ public class PlayerStats : MonoBehaviour
     public int FoodCount;
     public int BossThreshold;
     public static int Health;
-    private static float SizeChange = 0.05F;
-    private Vector3 ScaleIncrease = new Vector3(SizeChange, SizeChange, 0);
     GameObject Player;
     GameController GameController;
     private SpawnBoss SpawnBoss;
@@ -115,7 +113,6 @@ public class PlayerStats : MonoBehaviour
 
     void DisplayScoreToScreen(int FoodCount){
         ScoreCount.text = "Score: " + FoodCount; //display score to screen
-        Player.transform.localScale += ScaleIncrease; //increases size by ScaleIncrease
     }
 
     public static void IncreaseLevel() {

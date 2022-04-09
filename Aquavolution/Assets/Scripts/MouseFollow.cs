@@ -5,16 +5,10 @@ using System;
 public class MouseFollow : MonoBehaviour
 {
     public static MouseFollow instance;
-
     Vector2 MousePosition;
-    public float StartingMoveSpeed;
-    public float SurfaceHeight;
-    public float Gravity;
-    [SerializeField]
-    private float MinSpeed;
-
-    [SerializeField]
-    private float SlowdownFactor;
+    private Vector2 OldMousePos;
+    public float Speed;
+    public float MaxVelocity;
     private Rigidbody2D Rb;
 
     private void Awake() 
@@ -34,43 +28,25 @@ public class MouseFollow : MonoBehaviour
     }
 
     private void MoveCharacter()
-    {   
-        if(PlayerStats.Health == 0) { return; }
+    {
+        if (PlayerStats.Health == 0) { return; }
+        if (Vector2.SqrMagnitude(Rb.velocity) < MaxVelocity)
+        {
+            Vector2 Direction = (MousePosition - (Vector2)transform.position).normalized;            
+            Rb.AddForce(Direction * GetMoveSpeed());
 
-        if (transform.position.y >= SurfaceHeight)
-            Rb.gravityScale = Gravity;
+            OldMousePos = MousePosition;
+        }
         else
         {
-            Rb.gravityScale = 0;
-            Rb.AddForce((MousePosition - (Vector2)transform.position).normalized * GetMoveSpeed());
+            Vector2 Direction = ((Vector2)transform.position - OldMousePos).normalized;
+            Rb.AddForce(Direction * 1);
         }
         transform.up = MousePosition - (Vector2)transform.position;
     }
 
-    // Returns move speed, which gets lower as scale increases, to a minimum speed
     private float GetMoveSpeed()
     {
-        float Scale = transform.localScale.x;
-
-        float Speed = 0.0f;
-
-        if (Scale <= 1.5f)
-        {
-            Speed = StartingMoveSpeed;
-        }
-        else 
-        {
-            float Slowdown = Scale * SlowdownFactor;
-            if (StartingMoveSpeed - Slowdown <= MinSpeed) 
-            {
-                Speed = MinSpeed;                
-            }
-            else 
-            {
-                Speed = StartingMoveSpeed - Slowdown;
-            }
-        }
-
         float SpeedRatio = Math.Max(GetMouseRatio().x, GetMouseRatio().y);
 
         return Speed * SpeedRatio;

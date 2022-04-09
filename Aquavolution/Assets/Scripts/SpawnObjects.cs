@@ -7,17 +7,13 @@ public class SpawnObjects : MonoBehaviour
     public GameObject PlasticBottle;
     public GameObject PlasticStraw;
     public int MaxPlastic = 3;
-
-    public GameObject Enemy;
-
+    public int MaxFood;
+    public int FoodCount = 0;
     public GameObject Enemy0;
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
-    public GameObject Enemy4;
-
     public Camera Cam;
-    public int MaxEnemy = 5;
     public float SpawnRate;
 
     private LevelGeneration LevelGenerator;
@@ -25,43 +21,47 @@ public class SpawnObjects : MonoBehaviour
     void Start()
     {
         LevelGenerator = gameObject.GetComponent<LevelGeneration>();
-        RandomSpawn(Enemy1, MaxEnemy);
+        SpawnEnemies();
         GeneratePlastic(MaxPlastic);
 
         // Repeatedly generate food objects at Speed 
         InvokeRepeating("GenerateFood", 0, SpawnRate);
     }
 
-    // Gets x, y integers randomly between 0 and screen width and height in pixels,
-    // then, turns the pixel values into world space units, and instantiates the given prefab at that location
-    // Repeats this MaxCount amount of times
-    void RandomSpawn(GameObject SpawnObj, int MaxCount)
+    void SpawnEnemies()
     {
+        GameObject SpawnObj = Enemy0;
         foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            if ((R == null) || (R.name == "Room4(Clone)"))
-                continue;
+            int MaxCount = 4;            
+
+            if (R == null)
+                continue;            
+
+            switch (R.name.Substring(0, 5)) 
+            {
+                case "Room0":
+                    SpawnObj = Enemy0;
+                    MaxCount = 2;
+                    break;
+                case "Room1":
+                    SpawnObj = Enemy1;
+                    break;
+                case "Room2":
+                    SpawnObj = Enemy2;
+                    break;
+                case "Room3":
+                    SpawnObj = Enemy3;
+                    break;
+                case "Room4":
+                    continue;
+                default:
+                    break;
+            }
 
             for (int i = 0; i < MaxCount; i++)
-            {
-                string RoomNumber = R.name.Substring(0, 5);
-                switch (RoomNumber) {
-                    case "Room0":
-                        SpawnObj = Enemy0;
-                        break;
-                    case "Room1":
-                        SpawnObj = Enemy1;
-                        break;
-                    case "Room2":
-                        SpawnObj = Enemy2;
-                        break;
-                    case "Room3":
-                        SpawnObj = Enemy3;
-                        break;
-                    default:
-                        break;
-                }
-
+            {                
+                
                 GameObject SpawnedObject = Instantiate(SpawnObj, GetLocation(R), Quaternion.identity);
                 SpawnedObject.SetActive(true);
             }
@@ -72,11 +72,13 @@ public class SpawnObjects : MonoBehaviour
     {
         foreach (GameObject R in LevelGenerator.InstantiatedRooms)
         {
-            if ((R == null) || (R.name == "Room4(Clone)"))
+            if ((R == null) || (R.name == "Room4(Clone)") || !(FoodCount < MaxFood))
                 continue;
 
-            GameObject SpawnedObject = Instantiate(Food, GetLocation(R), Quaternion.identity);
+            GameObject SpawnedObject = Instantiate(Food, GetLocation(R), Quaternion.identity);            
             SpawnedObject.SetActive(true);
+
+            FoodCount++;
         }
     }
 
