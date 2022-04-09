@@ -44981,7 +44981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCount: {fileID: 1857817264}
-  FoodCount: 50
+  FoodCount: 0
   BossThreshold: 41
   Canvas: {fileID: 2021550200}
   KnockbackDuration: 0.5
