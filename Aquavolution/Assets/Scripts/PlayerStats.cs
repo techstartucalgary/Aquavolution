@@ -23,6 +23,7 @@ public class PlayerStats : MonoBehaviour
     static Animator animator;
 
     private static string CurrentSkin;
+    private GameObject CurrSkin;
 
     void Start()
     {
@@ -59,8 +60,14 @@ public class PlayerStats : MonoBehaviour
             // Get behavior script of enemy we touch
             EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
 
+            // Only get knocked back if same size as enemy
+            if (FoodCount == EnemyScript.Size)
+            {
+                StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
+                ActionSoundManager.PlaySound("boing");
+            }
             // Lose health if player hits an enemy larger than them
-            if (FoodCount <= EnemyScript.Size)
+            if (FoodCount < EnemyScript.Size)
             {
                 StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
                 DecreaseHealth();
@@ -82,12 +89,25 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
+        // Destroy(gameObject.GetComponent<PolygonCollider2D>());
+        // or
+        // gameObject.GetComponent<PolygonCollider2D>().isTrigger = true; // physics to the world will not be translated
+        ActionSoundManager.PlaySound("die");
         animator.SetTrigger("dead");
         GameController.GameOver(FoodCount);
     }
 
-    public void DecreaseHealth() {
-        
+    void ChangePlayerSkinColor()
+    {
+        CurrSkin = GameObject.Find(CurrentSkin);
+        CurrSkin.GetComponent<SkinTakesDamage>().ChangeSkinColor();
+    } 
+
+    public void DecreaseHealth() 
+    {
+        ActionSoundManager.PlaySound("damage");
+        ChangePlayerSkinColor();
+
         if (Health > 0)
         {
             UserInterface.UpdateHealthBar(); //update heath bar UI
@@ -102,7 +122,10 @@ public class PlayerStats : MonoBehaviour
     void IncreaseFood(int IncreaseVal)
     {
         if (Health > 0)
+        {
+            ActionSoundManager.PlaySound("eat");
             FoodCount += IncreaseVal;
+        }
         
         DisplayScoreToScreen(FoodCount);
 

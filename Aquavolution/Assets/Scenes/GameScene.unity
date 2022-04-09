@@ -905,6 +905,146 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &78332067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78332070}
+  - component: {fileID: 78332069}
+  - component: {fileID: 78332068}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &78332068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78332067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1260934d160eb9f4baf5934343db5298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &78332069
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78332067}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &78332070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78332067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &82655824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1638,7 @@ GameObject:
   - component: {fileID: 120228397}
   - component: {fileID: 120228396}
   - component: {fileID: 120228398}
+  - component: {fileID: 120228399}
   m_Layer: 0
   m_Name: Skin 5
   m_TagString: Player
@@ -1589,6 +1730,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &120228399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120228395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 120228396}
 --- !u!1 &131889026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2875,7 @@ GameObject:
   - component: {fileID: 360749849}
   - component: {fileID: 360749848}
   - component: {fileID: 360749850}
+  - component: {fileID: 360749851}
   m_Layer: 0
   m_Name: Skin 3
   m_TagString: Player
@@ -2812,6 +2967,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &360749851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360749847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 360749848}
 --- !u!1 &368905874
 GameObject:
   m_ObjectHideFlags: 0
@@ -13981,6 +14149,7 @@ GameObject:
   - component: {fileID: 636448719}
   - component: {fileID: 636448718}
   - component: {fileID: 636448720}
+  - component: {fileID: 636448721}
   m_Layer: 0
   m_Name: Skin 1
   m_TagString: Player
@@ -14072,6 +14241,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &636448721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636448717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 636448718}
 --- !u!1 &638656312
 GameObject:
   m_ObjectHideFlags: 0
@@ -23729,6 +23911,7 @@ GameObject:
   - component: {fileID: 742117883}
   - component: {fileID: 742117882}
   - component: {fileID: 742117884}
+  - component: {fileID: 742117885}
   m_Layer: 0
   m_Name: Skin 4
   m_TagString: Player
@@ -23820,6 +24003,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &742117885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742117881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 742117882}
 --- !u!1 &743315735
 GameObject:
   m_ObjectHideFlags: 0
@@ -24216,6 +24412,7 @@ GameObject:
   - component: {fileID: 861409121}
   - component: {fileID: 861409120}
   - component: {fileID: 861409122}
+  - component: {fileID: 861409123}
   m_Layer: 0
   m_Name: Skin 2
   m_TagString: Player
@@ -24307,6 +24504,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &861409123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861409119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 861409120}
 --- !u!1 &926826919
 GameObject:
   m_ObjectHideFlags: 0
@@ -47698,6 +47908,7 @@ GameObject:
   - component: {fileID: 1531268012}
   - component: {fileID: 1531268011}
   - component: {fileID: 1531268013}
+  - component: {fileID: 1531268014}
   m_Layer: 0
   m_Name: Skin 7
   m_TagString: Player
@@ -47789,6 +48000,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1531268014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531268010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 1531268011}
 --- !u!1 &1534152775
 GameObject:
   m_ObjectHideFlags: 0
@@ -60305,6 +60529,7 @@ GameObject:
   - component: {fileID: 2115255967}
   - component: {fileID: 2115255966}
   - component: {fileID: 2115255968}
+  - component: {fileID: 2115255969}
   m_Layer: 0
   m_Name: Skin 6
   m_TagString: Player
@@ -60396,6 +60621,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2115255969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115255965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7caf16d3df2c14b93e58fb277ca80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinSprite: {fileID: 2115255966}
 --- !u!1 &2126222129
 GameObject:
   m_ObjectHideFlags: 0
