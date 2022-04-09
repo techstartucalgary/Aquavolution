@@ -101,7 +101,9 @@ public class PlayerStats : MonoBehaviour
 
     void IncreaseFood(int IncreaseVal)
     {
-        FoodCount += IncreaseVal;
+        if (Health > 0)
+            FoodCount += IncreaseVal;
+        
         DisplayScoreToScreen(FoodCount);
 
         if (FoodCount % 10 == 0)
