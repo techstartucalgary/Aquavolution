@@ -29,6 +29,7 @@ public class MouseFollow : MonoBehaviour
 
     private void MoveCharacter()
     {
+        if (PlayerStats.Health == 0) { return; }
         if (Vector2.SqrMagnitude(Rb.velocity) < MaxVelocity)
         {
             Vector2 Direction = (MousePosition - (Vector2)transform.position).normalized;            
