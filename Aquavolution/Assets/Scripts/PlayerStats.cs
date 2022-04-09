@@ -55,43 +55,43 @@ public class PlayerStats : MonoBehaviour
     //method is called whenever a collision is detected
     void OnCollisionEnter2D(Collision2D Col)
     {
-        if (Col.gameObject.tag == "Enemy")
+        if (Health > 0)
         {
-            // Get behavior script of enemy we touch
-            EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
+            if (Col.gameObject.tag == "Enemy")
+            {
+                // Get behavior script of enemy we touch
+                EnemyBehavior EnemyScript = Col.gameObject.GetComponent<EnemyBehavior>();
 
-            // Only get knocked back if same size as enemy
-            if (FoodCount == EnemyScript.Size)
-            {
-                StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
-                ActionSoundManager.PlaySound("boing");
+                // Only get knocked back if same size as enemy
+                if (FoodCount == EnemyScript.Size)
+                {
+                    ActionSoundManager.PlaySound("boing");
+                    StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
+                }
+                // Lose health if player hits an enemy larger than them
+                if (FoodCount < EnemyScript.Size)
+                {
+                    StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
+                    DecreaseHealth();
+                }
+                // Eat the enemy and gain their size as food if player is larger than them
+                if (FoodCount > EnemyScript.Size)
+                {
+                    EnemyScript.GetEaten();
+                    IncreaseFood(EnemyScript.Size);
+                    animator.SetTrigger("eating");
+                }
             }
-            // Lose health if player hits an enemy larger than them
-            if (FoodCount < EnemyScript.Size)
+        
+            if (Col.gameObject.tag == "Waste")
             {
-                StartCoroutine(MouseFollow.instance.Knockback(KnockbackDuration, KnockbackPower, Col.transform));
                 DecreaseHealth();
             }
-            // Eat the enemy and gain their size as food if player is larger than them
-            if (FoodCount > EnemyScript.Size)
-            {
-                EnemyScript.GetEaten();
-                IncreaseFood(EnemyScript.Size);
-                animator.SetTrigger("eating");
-            }
-        }
-
-        if (Col.gameObject.tag == "Waste")
-        {
-            DecreaseHealth();
         }
     }
 
     void Die()
     {
-        // Destroy(gameObject.GetComponent<PolygonCollider2D>());
-        // or
-        // gameObject.GetComponent<PolygonCollider2D>().isTrigger = true; // physics to the world will not be translated
         ActionSoundManager.PlaySound("die");
         animator.SetTrigger("dead");
         GameController.GameOver(FoodCount);
