@@ -13,7 +13,7 @@ public class ActionSoundManager : MonoBehaviour
     {
         PlayerDeathSound = Resources.Load<AudioClip>("death-sound2");
         EatingSound = Resources.Load<AudioClip>("eating-sound");
-        PlayerDamageSound = Resources.Load<AudioClip>("damage-sound2");
+        PlayerDamageSound = Resources.Load<AudioClip>("damage-sound3");
         PlayerEnemyEqualSizeSound = Resources.Load<AudioClip>("boing-sound");
 
         AudioSrc = GetComponent<AudioSource>();
