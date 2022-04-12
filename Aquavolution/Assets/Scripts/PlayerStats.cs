@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
+        PlayerLevel = 1;
         // Had to put a delay so we can find game objects 
         StartCoroutine("SetupPlayer");
         UpdateAnimator();
@@ -119,6 +120,26 @@ public class PlayerStats : MonoBehaviour
         } 
     }
 
+    bool CheckBetween(int FoodCount)
+    {
+        switch (FoodCount)
+        {
+            case int n when (n >= 10 && n < 20) && PlayerLevel == 1:
+                return true;
+            case int n when (n >= 20 && n < 30) && PlayerLevel == 2:
+                return true;
+            case int n when (n >= 30 && n < 40) && PlayerLevel == 3:
+                return true;
+            case int n when (n >= 40 && n < 50) && PlayerLevel == 4:
+                return true;
+            case int n when (n >= 50 && n < 60) && PlayerLevel == 5:
+                return true;
+            case int n when (n >= 60 && n < 70) && PlayerLevel == 6:
+                return true;
+            default: return false;    
+        }
+    }
+
     void IncreaseFood(int IncreaseVal)
     {
         if (Health > 0)
@@ -129,7 +150,7 @@ public class PlayerStats : MonoBehaviour
         
         DisplayScoreToScreen(FoodCount);
 
-        if (FoodCount % 10 == 0)
+        if (CheckBetween(FoodCount))
             UI.DisplayLevelUp(true);
 
         if (FoodCount == BossThreshold)
