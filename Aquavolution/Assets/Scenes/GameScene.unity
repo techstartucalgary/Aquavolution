@@ -45549,7 +45549,7 @@ MonoBehaviour:
   ScoreCount: {fileID: 1857817264}
   FoodCount: 0
   HighestCount: 0
-  BossThreshold: 41
+  BossThreshold: 100
   Canvas: {fileID: 2021550200}
   KnockbackDuration: 0.5
   KnockbackPower: 7
@@ -59214,13 +59214,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reach 40 points, then descend to the depths of the ocean to devour your
+  m_Text: Reach 100 points, then descend to the depths of the ocean to devour your
     greatest foe!
 --- !u!222 &1876005490
 CanvasRenderer:
@@ -61411,7 +61411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 1
-  Size: 0
+  Size: 99
   SightStart: {fileID: 7477512003647524999}
   SightEnd: {fileID: 7481880913900156071}
 --- !u!212 &7288947201467442669
