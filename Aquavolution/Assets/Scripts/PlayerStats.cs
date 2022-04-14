@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] 
     private Text ScoreCount;
     public int FoodCount;
+    public int HighestCount;
     public int BossThreshold;
     public static int Health;
     GameObject Player;
@@ -27,7 +28,6 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        PlayerLevel = 1;
         // Had to put a delay so we can find game objects 
         StartCoroutine("SetupPlayer");
         UpdateAnimator();
@@ -35,7 +35,9 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator SetupPlayer()
     {
+        PlayerLevel = 1;
         Health = 5;
+        HighestCount = PlayerPrefs.GetInt("Highest");
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         UI = Canvas.GetComponent<UserInterface>();
@@ -95,7 +97,7 @@ public class PlayerStats : MonoBehaviour
     {
         ActionSoundManager.PlaySound("die");
         animator.SetTrigger("dead");
-        GameController.GameOver(FoodCount);
+        GameController.GameOver(FoodCount, HighestCount);
     }
 
     void ChangePlayerSkinColor()
@@ -146,6 +148,12 @@ public class PlayerStats : MonoBehaviour
         {
             ActionSoundManager.PlaySound("eat");
             FoodCount += IncreaseVal;
+
+            if (FoodCount > HighestCount)
+            {
+                PlayerPrefs.SetInt("Highest", FoodCount);
+                HighestCount = PlayerPrefs.GetInt("Highest");
+            }
         }
         
         DisplayScoreToScreen(FoodCount);
