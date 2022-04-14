@@ -7,9 +7,9 @@ public class GameController : MonoBehaviour
 {
     public DeathScreen DeathScreen;
 
-    public void GameOver(int FoodCount)
+    public void GameOver(int FoodCount, int HighestCount)
     {
-        DeathScreen.Setup(FoodCount);
+        DeathScreen.Setup(FoodCount, HighestCount);
     }
 
     // Start is called before the first frame update
