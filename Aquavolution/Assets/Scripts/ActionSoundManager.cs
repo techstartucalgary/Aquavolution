@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionSoundManager : MonoBehaviour
 {
-    public static AudioClip PlayerDeathSound, EatingSound, PlayerDamageSound, PlayerEnemyEqualSizeSound;
+    public static AudioClip PlayerDeathSound, EatingSound, PlayerDamageSound, PlayerEnemyEqualSizeSound, PlayerUpgradeSkinSound;
 
     static AudioSource AudioSrc;
 
@@ -15,6 +15,7 @@ public class ActionSoundManager : MonoBehaviour
         EatingSound = Resources.Load<AudioClip>("eating-sound");
         PlayerDamageSound = Resources.Load<AudioClip>("damage-sound3");
         PlayerEnemyEqualSizeSound = Resources.Load<AudioClip>("boing-sound");
+        PlayerUpgradeSkinSound = Resources.Load<AudioClip>("upgrade-sound");
 
         AudioSrc = GetComponent<AudioSource>();
     }
@@ -33,6 +34,9 @@ public class ActionSoundManager : MonoBehaviour
                 break;
             case "boing":
                 AudioSrc.PlayOneShot(PlayerEnemyEqualSizeSound);
+                break;
+            case "upgrade":
+                AudioSrc.PlayOneShot(PlayerUpgradeSkinSound);
                 break;
         }
 

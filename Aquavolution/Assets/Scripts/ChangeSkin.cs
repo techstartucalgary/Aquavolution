@@ -34,6 +34,7 @@ public class ChangeSkin : MonoBehaviour
 
     public void SwitchSkin()
     {
+        ActionSoundManager.PlaySound("upgrade");
         RegenHealthBar();
         switch (WhichSkinIsOn) {
             case 1:
