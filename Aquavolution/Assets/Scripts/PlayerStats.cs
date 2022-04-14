@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     {
         PlayerLevel = 1;
         Health = 5;
-        HighestCount = PlayerPrefs.GetInt("Highscore");
+        HighestCount = PlayerPrefs.GetInt("Highest");
         Player = gameObject;
         GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         UI = Canvas.GetComponent<UserInterface>();
@@ -152,6 +152,7 @@ public class PlayerStats : MonoBehaviour
             if (FoodCount > HighestCount)
             {
                 PlayerPrefs.SetInt("Highest", FoodCount);
+                HighestCount = PlayerPrefs.GetInt("Highest");
             }
         }
         
