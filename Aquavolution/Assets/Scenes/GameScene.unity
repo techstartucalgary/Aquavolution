@@ -45547,7 +45547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCount: {fileID: 1857817264}
-  FoodCount: 0
+  FoodCount: 120
   HighestCount: 0
   BossThreshold: 100
   Canvas: {fileID: 2021550200}
@@ -61584,6 +61584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21b500f5949352429c66365c4d467bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceThreshold: 40
+  DistanceThreshold: 60
   Player: {fileID: 5181096027212650084}
   Shark: {fileID: 7481219869659957321}
