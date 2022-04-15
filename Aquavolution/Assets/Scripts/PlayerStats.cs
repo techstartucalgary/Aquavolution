@@ -161,7 +161,7 @@ public class PlayerStats : MonoBehaviour
         if (CheckBetween(FoodCount))
             UI.DisplayLevelUp(true);
 
-        if (FoodCount == BossThreshold)
+        if (FoodCount >= BossThreshold)
             SpawnBoss.ThresholdMet();
     }
 
