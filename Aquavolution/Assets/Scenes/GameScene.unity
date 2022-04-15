@@ -45773,7 +45773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCount: {fileID: 1857817264}
-  FoodCount: 120
+  FoodCount: 0
   HighestCount: 0
   BossThreshold: 100
   Canvas: {fileID: 2021550200}
