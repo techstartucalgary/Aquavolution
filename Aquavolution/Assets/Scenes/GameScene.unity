@@ -1837,7 +1837,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0ff8364aceaadb148982ccaa06674251, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3201,7 +3201,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2d89631ebd7b23a44be405bf7a8f6523, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -14475,7 +14475,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 20db0c0bd3cd44243a86ff27419fa6d0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -24237,7 +24237,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e0d3752b5c0d8e14db4cc8413ed6e110, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -24740,7 +24740,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6786e63ffd794cd46b26f5d8c567d356, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -45549,7 +45549,7 @@ MonoBehaviour:
   ScoreCount: {fileID: 1857817264}
   FoodCount: 0
   HighestCount: 0
-  BossThreshold: 41
+  BossThreshold: 100
   Canvas: {fileID: 2021550200}
   KnockbackDuration: 0.5
   KnockbackPower: 7
@@ -48435,7 +48435,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e1bc7d4154edf3f46bacb152332da78a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -59214,13 +59214,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reach 40 points, then descend to the depths of the ocean to devour your
+  m_Text: Reach 100 points, then descend to the depths of the ocean to devour your
     greatest foe!
 --- !u!222 &1876005490
 CanvasRenderer:
@@ -61073,7 +61073,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2cbca8252a557e34eb605f375965853f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -61341,9 +61341,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.6
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_Mass: 0.3
+  m_LinearDrag: 1
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -61411,7 +61411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 1
-  Size: 0
+  Size: 99
   SightStart: {fileID: 7477512003647524999}
   SightEnd: {fileID: 7481880913900156071}
 --- !u!212 &7288947201467442669
